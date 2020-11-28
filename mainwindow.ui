@@ -30,7 +30,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="PWD">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -81,7 +81,7 @@
      <string>Mot de passe</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="ID">
     <property name="geometry">
      <rect>
       <x>350</x>

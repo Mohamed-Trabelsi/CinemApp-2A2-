@@ -18,6 +18,7 @@ SOURCES += \
     connexion.cpp \
     employe.cpp \
     excel.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     qcustomplot.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     connexion.h \
     employe.h \
     excel.h \
+    login.h \
     mainwindow.h \
     qcustomplot.h \
     salle.h \
