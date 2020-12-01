@@ -1,0 +1,122 @@
+#include "serviceTech.h"
+#include "ui_serviceTech.h"
+#include "film.h"
+#include "salle.h"
+#include <QMessageBox>
+serviceTech::serviceTech(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::serviceTech)
+{
+    ui->setupUi(this);
+    ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
+    ui->tableView_salle->setModel(tempSalle.afficherSalle());
+}
+
+serviceTech::~serviceTech()
+{
+    delete ui;
+}
+
+
+
+void serviceTech::on_pushButton_ajoutE_clicked()
+{
+   int id=ui->lineEdit_IDE->text().toInt();
+   int numTel=ui->lineEdit_numE->text().toInt();
+   QString nom=ui->lineEdit_nomE->text();
+   QString prenom=ui->lineEdit_prenomE->text();
+   Employe e(id, nom, prenom, numTel);
+   ui->lineEdit_IDE->clear();
+   ui->lineEdit_numE->clear();
+   ui->lineEdit_nomE->clear();
+   ui->lineEdit_prenomE->clear();
+   bool test=e.ajouter();
+   if (test)
+   {
+       ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
+       QMessageBox::information(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout avec succés \n click cancel to exit")
+               ,QMessageBox::Cancel);
+   }
+   else
+   {
+       QMessageBox::critical(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout échoue \n click cancel to exit")
+               ,QMessageBox::Cancel);
+   }
+}
+
+void serviceTech::on_pushButton_supprimerEmploye_clicked()
+{
+int id=ui->lineEdit_supprimerEmploye->text().toInt();
+ui->lineEdit_supprimerEmploye->clear();
+bool test = tempEmploye.supprimer(id);
+if (test)
+{
+    ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
+    QMessageBox::information(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression avec succés \n click cancel to exit")
+            ,QMessageBox::Cancel);
+}
+else
+{
+    QMessageBox::critical(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression échouée \n click cancel to exit")
+            ,QMessageBox::Cancel);
+}
+}
+
+
+void serviceTech::on_pushButton_ajoutsalle_clicked()
+{
+    int num=ui->numsalle->text().toInt();
+    int capacite=ui->capacitesalle->text().toInt();
+    QString etat=ui->etatsalle->text();
+    Salle s(num, capacite, etat);
+    ui->numsalle->clear();
+    ui->capacitesalle->clear();
+    ui->etatsalle->clear();
+    bool test=s.ajouterSalle();
+    if (test)
+    {
+         ui->tableView_salle->setModel(tempSalle.afficherSalle());
+        QMessageBox::information(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout avec succés \n click cancel to exit")
+                ,QMessageBox::Cancel);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout échoué \n click cancel to exit")
+                ,QMessageBox::Cancel);
+    }
+}
+
+void serviceTech::on_pushButton_suppSalle_clicked()
+{
+    int num=ui->lineEdit_suppSalle->text().toInt();
+    ui->lineEdit_suppSalle->clear();
+    bool test = tempSalle.supprimerSalle(num);
+    if (test)
+    {
+        ui->tableView_salle->setModel(tempSalle.afficherSalle());
+        QMessageBox::information(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression avec succés \n click cancel to exit")
+                ,QMessageBox::Cancel);
+    }
+    else
+    {
+        QMessageBox::critical(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression échouée \n click cancel to exit")
+                ,QMessageBox::Cancel);
+    }
+}
+
+void serviceTech::on_pushButton_modifS_clicked()
+{
+    int num=ui->numsalle->text().toInt();
+        tempSalle.setCapacite(ui->capacitesalle->text().toInt());
+        tempSalle.setEtat(ui->etatsalle->text());
+        bool test=tempSalle.modifSalle(num);
+        if(test)
+        {
+           ui->tableView_salle->setModel(tempSalle.afficherSalle());
+                    QMessageBox::information(nullptr,QObject::tr("modification"),QObject::tr("modification avec succés \n click ok to exit")
+                            ,QMessageBox::Ok);
+                                           }
+                else
+                    QMessageBox::critical(nullptr,QObject::tr("modification"),QObject::tr("modification failed \n click cancel to exit")
+                            ,QMessageBox::Ok);
+}
