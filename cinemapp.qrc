@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../Desktop/cinemApp.jpg</file>
+    </qresource>
+</RCC>
