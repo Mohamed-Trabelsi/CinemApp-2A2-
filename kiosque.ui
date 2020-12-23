@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>852</width>
-    <height>608</height>
+    <width>802</width>
+    <height>561</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>myappico.png</normaloff>myappico.png</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -19,41 +23,54 @@
      <x>10</x>
      <y>10</y>
      <width>831</width>
-     <height>591</height>
+     <height>581</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/cinemApp.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string/>
    </property>
    <property name="pixmap">
-    <pixmap>cinemApp.jpg</pixmap>
+    <pixmap resource="pic.qrc">:/new/prefix1/cinemApp.jpg</pixmap>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>30</y>
-     <width>771</width>
+     <y>20</y>
+     <width>751</width>
      <height>501</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
+   <property name="sizeIncrement">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">
 
-/*QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} 
-QTabBar::tab {background-color: transparent;color: #ccc;width: 250px;height:48px;font-size:24px} 
-QTabBar::tab:hover{background-color:#ddd; color: white;}     
-QTabBar::tab:selected{background-color: #363535; color: #008BEA;}*/</string>
+/*QWidget{background:transparent} QTabWidget::pane{border: 1px;border-color:red;background-color: transparent;} */
+QTabBar::tab {background-color: transparent;color:#B22222;width: 150px;height:40px;font-size:15px} 
+QTabBar::tab:hover{background-color:#1c1c1c; color: white;}     
+QTabBar::tab:selected{background-color:#363535 ; color:#008BEA ;}
+/* #008BEA*/</string>
    </property>
    <property name="tabShape">
     <enum>QTabWidget::Rounded</enum>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -78,8 +95,23 @@ QTabBar::tab:selected{background-color: #363535; color: #008BEA;}*/</string>
        <x>10</x>
        <y>10</y>
        <width>271</width>
-       <height>201</height>
+       <height>191</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTextEdit, QListView {
+    background-color: white;
+    background-image: url(draft.png);
+    background-attachment: fixed;
+}</string>
      </property>
      <property name="title">
       <string>Ajout</string>
@@ -88,10 +120,18 @@ QTabBar::tab:selected{background-color: #363535; color: #008BEA;}*/</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>20</y>
+        <y>30</y>
         <width>71</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Shell Dlg 2</family>
+        <pointsize>8</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QLabel 
@@ -107,7 +147,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>20</y>
+        <y>30</y>
         <width>51</width>
         <height>20</height>
        </rect>
@@ -119,8 +159,8 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
      <widget class="QLabel" name="label_30">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>60</y>
+        <x>130</x>
+        <y>30</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -132,8 +172,8 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
      <widget class="QLineEdit" name="LineEditnom_produit">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>50</y>
+        <x>170</x>
+        <y>30</y>
         <width>91</width>
         <height>20</height>
        </rect>
@@ -143,7 +183,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>90</y>
+        <y>70</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -156,7 +196,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>120</y>
+        <y>110</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -165,53 +205,35 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
        <string>Quantité</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="LineEdit_17">
+     <widget class="QLineEdit" name="LineEditQuantiteajoutP">
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>120</y>
+        <y>110</y>
         <width>41</width>
         <height>20</height>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_9">
+     <widget class="QPushButton" name="pushButton_AjoutProdui">
       <property name="geometry">
        <rect>
         <x>160</x>
         <y>140</y>
-        <width>64</width>
+        <width>84</width>
         <height>28</height>
        </rect>
       </property>
       <property name="font">
-       <font/>
+       <font>
+        <family>MS Reference Sans Serif</family>
+       </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">/*QPushButton {
-color: white;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #A9A9A9, stop: 0.1 #A9A9A9, stop: 0.49 #A9A9A9, stop: 0.5 #A9A9A9, stop: 1 #A9A9A9);
-border-width: 1px;
-border-color: #339;
-border-style: solid;
-border-radius: 7;
-padding: 3px;
-font-size: 10px;
-padding-left:1px;
-padding-right: 1px;
-min-width: 60px;
-max-width: 60px;
-min-height: 20px;
-max-height: 20px;
-}*/
-QPushButton:hover {
-    border-image: url(:/images/button-hover.png) 16;           
-}
-QPushButton:pressed {
-    color: lightgray;
-    border-image: url(:/images/button-pressed.png) 16;         
-    padding-top: -15px;
-    padding-bottom: -17px;
+       <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
 }</string>
       </property>
       <property name="text">
@@ -222,7 +244,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>150</y>
+        <y>140</y>
         <width>71</width>
         <height>16</height>
        </rect>
@@ -231,11 +253,11 @@ QPushButton:pressed {
        <string>prix</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="LineEdit_18">
+     <widget class="QLineEdit" name="LineEditPrAjoutPr">
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>150</y>
+        <y>140</y>
         <width>41</width>
         <height>20</height>
        </rect>
@@ -245,10 +267,16 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>90</y>
+        <y>70</y>
         <width>82</width>
         <height>17</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QRadioButton::indicator {
+    width: 13px;
+    height: 13px;
+}</string>
       </property>
       <property name="text">
        <string>local</string>
@@ -258,7 +286,7 @@ QPushButton:pressed {
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>90</y>
+        <y>70</y>
         <width>91</width>
         <height>20</height>
        </rect>
@@ -277,35 +305,36 @@ QPushButton:pressed {
        <height>81</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="title">
       <string>Suppression</string>
      </property>
-     <widget class="QPushButton" name="pushButton_19">
+     <widget class="QPushButton" name="suppProduit">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>190</x>
         <y>40</y>
-        <width>64</width>
+        <width>84</width>
         <height>28</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">/*QPushButton {
-color: white;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #A9A9A9, stop: 0.1 #A9A9A9, stop: 0.49 #A9A9A9, stop: 0.5 #A9A9A9, stop: 1 #A9A9A9);
-border-width: 1px;
-border-color: #339;
-border-style: solid;
-border-radius: 7;
-padding: 3px;
-font-size: 10px;
-padding-left:1px;
-padding-right: 1px;
-min-width: 60px;
-max-width: 60px;
-min-height: 20px;
-max-height: 20px;
-}*/</string>
+       <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
       </property>
       <property name="text">
        <string>supprimer</string>
@@ -327,7 +356,7 @@ max-height: 20px;
      <widget class="QComboBox" name="comboBox_3">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>80</x>
         <y>30</y>
         <width>69</width>
         <height>22</height>
@@ -344,35 +373,37 @@ max-height: 20px;
        <height>191</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="title">
       <string>Modification</string>
      </property>
-     <widget class="QPushButton" name="pushButton_12">
+     <widget class="QPushButton" name="ModifProduit">
       <property name="geometry">
        <rect>
         <x>140</x>
         <y>150</y>
-        <width>64</width>
+        <width>84</width>
         <height>28</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">/*QPushButton {
-color: white;
-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #A9A9A9, stop: 0.1 #A9A9A9, stop: 0.49 #A9A9A9, stop: 0.5 #A9A9A9, stop: 1 #A9A9A9);
-border-width: 1px;
-border-color: #339;
-border-style: solid;
-border-radius: 7;
-padding: 3px;
-font-size: 15px;
-padding-left:1px;
-padding-right: 1px;
-min-width: 60px;
-max-width: 60px;
-min-height: 20px;
-max-height: 20px;
-}*/</string>
+       <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
       </property>
       <property name="text">
        <string>Modifier</string>
@@ -383,7 +414,7 @@ max-height: 20px;
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>120</y>
+       <y>130</y>
        <width>431</width>
        <height>151</height>
       </rect>
@@ -392,60 +423,72 @@ max-height: 20px;
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>450</x>
        <y>100</y>
-       <width>47</width>
-       <height>13</height>
+       <width>141</width>
+       <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="text">
       <string>Affichage</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_3">
+    <widget class="QPushButton" name="pushButton_PDFProd">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>680</x>
        <y>290</y>
-       <width>82</width>
-       <height>17</height>
+       <width>45</width>
+       <height>45</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/pdf(1));
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+     </property>
      <property name="text">
-      <string>tri nom</string>
+      <string/>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_4">
+    <widget class="QLineEdit" name="lineEdit_rechercheP">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>290</y>
-       <width>82</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>tri quantite</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_PDF">
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>290</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>PDF</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_14">
-     <property name="geometry">
-      <rect>
-       <x>460</x>
-       <y>320</y>
+       <x>540</x>
+       <y>310</y>
        <width>113</width>
        <height>20</height>
       </rect>
@@ -487,7 +530,7 @@ max-height: 20px;
       <string>Nom</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_25">
+    <widget class="QLineEdit" name="NomModifPr">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -510,16 +553,6 @@ max-height: 20px;
       <string>Catégorie</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5Produit">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>290</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_39">
      <property name="geometry">
       <rect>
@@ -533,7 +566,7 @@ max-height: 20px;
       <string>Quantité</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_26">
+    <widget class="QLineEdit" name="quantieModPr">
      <property name="geometry">
       <rect>
        <x>90</x>
@@ -556,7 +589,7 @@ max-height: 20px;
       <string>prix</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="LineEdit_19">
+    <widget class="QLineEdit" name="PrixModPr">
      <property name="geometry">
       <rect>
        <x>180</x>
@@ -564,6 +597,132 @@ max-height: 20px;
        <width>41</width>
        <height>20</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>290</y>
+       <width>121</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Tri</string>
+     </property>
+     <widget class="QRadioButton" name="radioButton_TRInProd">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>82</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tri nom</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="radioButton_TRIqProd">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>tri quantite</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_5">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>290</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>local</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_6">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>290</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>importe</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="EXCELPr">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>340</y>
+       <width>45</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/excel);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>310</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>RECHERCHE</string>
      </property>
     </widget>
    </widget>
@@ -597,17 +756,26 @@ max-height: 20px;
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="ajoutFacture">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>110</y>
-       <width>74</width>
-       <height>28</height>
+       <x>230</x>
+       <y>120</y>
+       <width>91</width>
+       <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
      </property>
      <property name="text">
       <string> validier ajout</string>
@@ -652,7 +820,7 @@ max-height: 20px;
       <string>prixachat</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="PrixachatAj">
      <property name="geometry">
       <rect>
        <x>80</x>
@@ -678,7 +846,7 @@ max-height: 20px;
       <string>prixvente</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="PrixVenteFacAj">
      <property name="geometry">
       <rect>
        <x>220</x>
@@ -704,14 +872,50 @@ max-height: 20px;
     <widget class="QPushButton" name="pushButton_PDFFac">
      <property name="geometry">
       <rect>
-       <x>650</x>
-       <y>230</y>
-       <width>75</width>
-       <height>23</height>
+       <x>690</x>
+       <y>220</y>
+       <width>45</width>
+       <height>45</height>
       </rect>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Shell Dlg 2</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/pdf(1));
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+     </property>
      <property name="text">
-      <string>PDF</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_57">
@@ -733,13 +937,20 @@ max-height: 20px;
        <x>10</x>
        <y>10</y>
        <width>331</width>
-       <height>141</height>
+       <height>151</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="title">
       <string>Ajout</string>
      </property>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="NumFacAj">
       <property name="geometry">
        <rect>
         <x>80</x>
@@ -776,63 +987,21 @@ max-height: 20px;
       </property>
      </widget>
     </widget>
-    <widget class="QGroupBox" name="groupBox_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>170</y>
-       <width>331</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="title">
-      <string>Suppression</string>
-     </property>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>81</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Num facture</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_S">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>20</y>
-        <width>75</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>supprimer</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_4">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>20</y>
-        <width>69</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
     <widget class="QGroupBox" name="groupBox_6">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>240</y>
+       <y>250</y>
        <width>331</width>
        <height>161</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="title">
       <string>Modification</string>
@@ -909,10 +1078,10 @@ max-height: 20px;
        <string>prixachat</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_9">
+     <widget class="QLineEdit" name="PrixachatModpr">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>80</y>
         <width>71</width>
         <height>20</height>
@@ -935,10 +1104,10 @@ max-height: 20px;
        <string>prixvente</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_10">
+     <widget class="QLineEdit" name="PrixventeModfac">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>70</x>
         <y>110</y>
         <width>71</width>
         <height>20</height>
@@ -948,117 +1117,324 @@ max-height: 20px;
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_14Valmodif">
+     <widget class="QPushButton" name="ModiFacture">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>180</x>
         <y>120</y>
-        <width>101</width>
+        <width>121</width>
         <height>23</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
       </property>
       <property name="text">
        <string>Valider modification</string>
       </property>
      </widget>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="rehercheFacture">
      <property name="geometry">
       <rect>
        <x>480</x>
-       <y>270</y>
+       <y>300</y>
        <width>113</width>
        <height>20</height>
       </rect>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_triedate">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>230</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>tri date</string>
-     </property>
-    </widget>
-    <widget class="QRadioButton" name="radioButtontrigain">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>230</y>
-       <width>82</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>tri gain</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>500</x>
        <y>10</y>
-       <width>47</width>
-       <height>13</height>
+       <width>141</width>
+       <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="text">
       <string>Affichage</string>
      </property>
     </widget>
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>169</y>
+       <width>331</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Suppression</string>
+     </property>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Num facture</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>30</y>
+        <width>69</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="SuppFacture">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>30</y>
+        <width>84</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>MS Reference Sans Serif</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+      </property>
+      <property name="text">
+       <string>supprimer</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="TriidFacture">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>240</y>
+       <width>84</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+     </property>
+     <property name="text">
+      <string>TriID</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="TriDateFacture">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>240</y>
+       <width>84</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+     </property>
+     <property name="text">
+      <string>TriDate</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="EXcelF">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>280</y>
+       <width>41</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/excel);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonWEB">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>370</y>
+       <width>75</width>
+       <height>45</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="sizeIncrement">
+      <size>
+       <width>45</width>
+       <height>45</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/site);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>300</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>RECHERCHE</string>
+     </property>
+    </widget>
+    <zorder>groupBox_8</zorder>
     <zorder>groupBox_6</zorder>
     <zorder>groupBox</zorder>
-    <zorder>groupBox_5</zorder>
     <zorder>line_4</zorder>
     <zorder>label_17</zorder>
-    <zorder>pushButton</zorder>
+    <zorder>ajoutFacture</zorder>
     <zorder>label_6</zorder>
     <zorder>label_7</zorder>
     <zorder>label_52</zorder>
-    <zorder>lineEdit_5</zorder>
+    <zorder>PrixachatAj</zorder>
     <zorder>label_53</zorder>
-    <zorder>lineEdit_6</zorder>
+    <zorder>PrixVenteFacAj</zorder>
     <zorder>tableView_2</zorder>
     <zorder>pushButton_PDFFac</zorder>
     <zorder>label_57</zorder>
-    <zorder>lineEdit_2</zorder>
-    <zorder>radioButton_triedate</zorder>
-    <zorder>radioButtontrigain</zorder>
+    <zorder>rehercheFacture</zorder>
     <zorder>label_3</zorder>
+    <zorder>TriidFacture</zorder>
+    <zorder>TriDateFacture</zorder>
+    <zorder>EXcelF</zorder>
+    <zorder>pushButtonWEB</zorder>
+    <zorder>label_4</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>Statistique produit</string>
     </attribute>
-    <widget class="QLabel" name="label_4">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>90</y>
-       <width>231</width>
-       <height>251</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../kiosque/stat2.png</pixmap>
-     </property>
-    </widget>
     <widget class="QCustomPlot" name="plot" native="true">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
-       <width>721</width>
-       <height>421</height>
+       <y>40</y>
+       <width>691</width>
+       <height>401</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>20</y>
+       <width>141</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Script MT Bold</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -1066,13 +1442,34 @@ max-height: 20px;
     <attribute name="title">
      <string>Son</string>
     </attribute>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>30</y>
+       <width>201</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Son</string>
+     </property>
+    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>80</y>
-       <width>341</width>
-       <height>87</height>
+       <x>140</x>
+       <y>100</y>
+       <width>331</width>
+       <height>131</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1081,30 +1478,114 @@ max-height: 20px;
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QPushButton" name="pushButton_stop">
-            <property name="text">
-             <string>stop</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="play">
-            <property name="text">
-             <string>play </string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="pushButton_apport">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/apporter);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+            </property>
             <property name="text">
-             <string>apport</string>
+             <string/>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="pushButton_5">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/pause);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+            </property>
             <property name="text">
-             <string>pause </string>
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_stop">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/stop);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="play">
+            <property name="sizeIncrement">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/play);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+            </property>
+            <property name="text">
+             <string/>
             </property>
            </widget>
           </item>
@@ -1112,6 +1593,17 @@ max-height: 20px;
         </item>
         <item>
          <widget class="QProgressBar" name="avance">
+          <property name="styleSheet">
+           <string notr="true">/*QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+}*/</string>
+          </property>
           <property name="value">
            <number>0</number>
           </property>
@@ -1122,16 +1614,37 @@ max-height: 20px;
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
-         <widget class="QSlider" name="volume">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
+         <widget class="QPushButton" name="mute">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>45</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+
+    font: 12pt &quot;MS Shell Dlg 2&quot;;
+
+color:white;
+
+background-image:url(C:/Users/ASUS/Documents/kiosqueK/muet);
+
+background-position:  center;
+
+background-repeat:no-repeat;
+
+				   }</string>
+          </property>
+          <property name="text">
+           <string/>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="mute">
-          <property name="text">
-           <string>muet </string>
+         <widget class="QSlider" name="volume">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
@@ -1140,6 +1653,83 @@ max-height: 20px;
      </layout>
     </widget>
    </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Chat</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>50</y>
+       <width>531</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="CHAT">
+        <property name="styleSheet">
+         <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+        </property>
+        <property name="text">
+         <string>envoyer</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>530</y>
+     <width>84</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>MS Reference Sans Serif</family>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
+    min-width: 80px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
   </widget>
  </widget>
  <customwidgets>
@@ -1150,6 +1740,41 @@ max-height: 20px;
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources>
+  <include location="pic.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>kiosque</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>718</x>
+     <y>536</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>751</x>
+     <y>512</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>pushButton_2</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>667</x>
+     <y>541</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>686</x>
+     <y>544</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

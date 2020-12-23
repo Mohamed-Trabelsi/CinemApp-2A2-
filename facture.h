@@ -22,9 +22,10 @@ public:
     bool supprimer(int id );
     bool modifier(int);
     QSqlQueryModel * trie_facture();
-    QSqlQueryModel * trie_factureP();
+    QSqlQueryModel * trie_facturep();
     int calcul(int,int);
     QSqlQueryModel *rechercher(QString);
+    QSqlQueryModel * trie_factureid();
 };
 
 #endif // FACTURE_H

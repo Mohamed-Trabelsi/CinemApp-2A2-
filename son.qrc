@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/son">
+        <file>s.wav</file>
+        <file>son.wav</file>
+        <file>ss.wav</file>
+    </qresource>
+</RCC>

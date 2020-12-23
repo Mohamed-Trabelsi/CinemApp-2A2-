@@ -2,10 +2,9 @@
     <qresource prefix="/new/prefix1">
         <file>cinemApp.jpg</file>
         <file>stat1.png</file>
-        <file>stat2.png</file>
         <file>logocin.png</file>
         <file>AUTH.png</file>
         <file>AUTHperso.png</file>
-        <file>leo.mp3</file>
+        <file>stat2.png</file>
     </qresource>
 </RCC>

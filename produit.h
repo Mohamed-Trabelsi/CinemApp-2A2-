@@ -21,10 +21,10 @@ public:
     QSqlQueryModel *afficher();
     bool supprimer(int  );
     bool modifier(int);//**//
-   QSqlQueryModel *rechercher(QString);
-   void statistique(QVector<double>* ticks,QVector<QString> *labels);
- QSqlQueryModel * trie_produitQ();
-  QSqlQueryModel * trie_produitN();
+    QSqlQueryModel *rechercher(QString);
+    void statistique(QVector<double>* ticks,QVector<QString> *labels);
+    QSqlQueryModel * trie_produitQ();
+    QSqlQueryModel * trie_produitN();
 
 };
 

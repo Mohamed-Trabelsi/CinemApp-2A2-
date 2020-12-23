@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 #include "produit.h"
 #include "facture.h"
-
+#include <QSound>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -10,6 +10,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 class QMediaPlayer;
+
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -26,5 +28,7 @@ private:
     Produit tempProduit;
     facture temFacture;
     QMediaPlayer *mMediaPlayer;
+    QSound *son;
+
 };
 #endif // MAINWINDOW_H

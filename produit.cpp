@@ -49,7 +49,7 @@ int Produit:: getPrix()
     return this->prix;
 }
 bool Produit:: ajouter()
-{   //bool test =false;
+{
     QSqlQuery query;
     QString res=QString ::number(identifiant);//res=sid//
     QString resQ=QString ::number(quantite);
@@ -99,9 +99,6 @@ bool Produit::modifier(int idd)
 {
 QSqlQuery query,rech;
 QString res= QString::number(idd);
-//QString resQ=QString ::number(quantite);
-//QString resP=QString ::number(prix);
-//rech.prepare(("Select from produit where ")
 query.prepare("Update produit set  NOM = :nom , CATEGORIE = :categorie , QUANTITE = :quantite ,PRIX= :prix where IDENTIFIANT = :idd ");
 query.bindValue(":idd",res);
 query.bindValue(":nom",nom);
@@ -135,7 +132,7 @@ void Produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
     q.exec("select QUANTITE from produit");
     while (q.next())
     {
-        QString identifiant = q.value(0).toString();///********///
+        QString identifiant = q.value(0).toString();
         i++;
         *ticks<<i;
         *labels <<identifiant;

@@ -1,7 +1,12 @@
 QT       += core gui sql printsupport multimedia
+QT += widgets multimedia
+QT       += core gui sql network
 
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4):
+/*TARGET = test_son*/
+TARGET = test_son
+TEMPLATE = app
+QT += widgets
 
 CONFIG += c++11
 CONFIG += console
@@ -10,9 +15,11 @@ CONFIG += console
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+RC_ICONS = cinemapp.ico
 SOURCES += \
     connection.cpp \
     facture.cpp \
+    historique.cpp \
     kiosque.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -22,6 +29,7 @@ SOURCES += \
 HEADERS += \
     connection.h \
     facture.h \
+    historique.h \
     kiosque.h \
     mainwindow.h \
     produit.h \
@@ -37,6 +45,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    pic.qrc
+    pic.qrc \
+    res.qrc \
+    res.qrc \
+    son.qrc
 
 QMAKE_CXXFLAGS += -std=gnu++11

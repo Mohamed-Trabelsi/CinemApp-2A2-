@@ -3,15 +3,16 @@
 #include "kiosque.h"
 #include "produit.h"
 #include "facture.h"
+#include <QMediaPlayer>
+#include <QSystemTrayIcon>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //mMediaPlayer = new QMediaPlayer(this);
-   // ui->tableView->setModel(tempProduit.afficher());
-   //ui->tableView_2->setModel(tempFacture.afficher());
+    mMediaPlayer = new QMediaPlayer(this);
 
 }
 

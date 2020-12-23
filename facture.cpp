@@ -7,7 +7,6 @@
 #include <QTextStream>
 #include <QPainter>
 #include <QTextStream>
-//#include "qcustomplot.h"
 
 
 facture::facture()
@@ -45,7 +44,7 @@ int facture:: getPrixVente()
 }
 int facture::  calcul(int prixachat,int prixvente)
 {
-int gain;
+    int gain;
     gain= prixvente -prixachat;
     return gain;
 
@@ -65,8 +64,6 @@ bool facture::ajouter()
  query.bindValue(":datefacture",datefacture);
  query.bindValue(":prixachat",resPA);
  query.bindValue(":prixvente",resPV);
- //ui->comboBox->setModel(tmppack.afficher_pack());
-
  query.bindValue(":gain_perte",resG);
  return query.exec();
 
@@ -119,7 +116,7 @@ return    query.exec();
 QSqlQueryModel *facture:: trie_facture()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("select * from facture order by DATEFACTURE" );
+    model->setQuery("select *from FACTURE order by DATEFACTURE" );
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("NUMFACTURE"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("DATEFACTURE"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("PRIXACHAT"));
@@ -128,15 +125,17 @@ QSqlQueryModel *facture:: trie_facture()
  return model;
 
 }
-QSqlQueryModel *facture:: trie_factureP()
+
+QSqlQueryModel *facture:: trie_factureid()
 {
     QSqlQueryModel *model=new QSqlQueryModel();
-    model->setQuery("select * from facture order by GAIN_PERTE" );
+    model->setQuery("select *from FACTURE order by NUMFACTURE" );
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("NUMFACTURE"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("DATEFACTURE"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("PRIXACHAT"));
     model->setHeaderData(3,Qt::Horizontal,QObject::tr("PRIXVENTE"));
     model->setHeaderData(4,Qt::Horizontal,QObject::tr("GAIN_PERTE"));
+
  return model;
 
 }
@@ -153,5 +152,4 @@ QSqlQueryModel *facture::rechercher(QString q)
       model->setHeaderData(4,Qt::Horizontal,QObject::tr("GAIN_PERTE"));
 
       return model;
-
 }
