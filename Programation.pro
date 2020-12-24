@@ -27,6 +27,7 @@ SOURCES += \
     Programmation.cpp \
     client.cpp \
     connexion.cpp \
+    excel.cpp \
     film.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     Programmation.h \
     client.h \
     connexion.h \
+    excel.h \
     film.h \
     mainwindow.h \
     notification.h \

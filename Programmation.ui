@@ -42,7 +42,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_3">
     <attribute name="title">
@@ -547,7 +547,7 @@
       </rect>
      </property>
      <property name="title">
-      <string>Liste des employés</string>
+      <string>Liste Tickets</string>
      </property>
      <widget class="QTableView" name="tableView_Ticket">
       <property name="geometry">
@@ -557,6 +557,19 @@
         <width>421</width>
         <height>241</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_excel">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>280</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Export Excel</string>
       </property>
      </widget>
     </widget>

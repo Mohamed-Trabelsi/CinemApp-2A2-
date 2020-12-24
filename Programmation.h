@@ -46,13 +46,15 @@ private slots:
 
     void on_pushButton_Chat_clicked();
 
+    void on_pushButton_excel_clicked();
+
 private:
     Ui::Programmation *ui;
     Film tempFilm;
     Ticket tempTicket;
     Server *serverdialog;
     Client *clientdialog;
-    notification *mysystem;
+    QSystemTrayIcon *mysystem;
 };
 
 #endif // PROGRAMMATION_H
