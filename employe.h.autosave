@@ -1,0 +1,23 @@
+#ifndef FILM_H
+#define FILM_H
+#include <QString>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+class Film
+{
+public:
+    Film();
+    Film(int,QString,QString,int);
+    int getID(){return id;}
+    QString getNom(){return nom;}
+    QString getPreNom(){return prenom;}
+    int getNumtel(){return numTel;}
+    bool ajouter();
+    bool supprimer(int);
+    QSqlQueryModel * afficherEmploye();
+private:
+    int id,numTel;
+    QString nom,prenom;
+};
+
+#endif // FILM_H
