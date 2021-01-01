@@ -11,11 +11,13 @@
 #include<QSqlQueryModel>
 #include<QSqlQuery>
 #include "arduino.h"
+#include <QIntValidator>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->ID->setValidator(new QIntValidator(0,999999,this));
     /*int ret = A.connectArduino();
     switch (ret)
     {
@@ -57,13 +59,13 @@ ui->ID->clear();
 ui->PWD->clear();
 if (templog.connect(id,mdp)==1)
 {
-    QMessageBox::information(this,"connecter","Welcome to CinemApp");
+    QMessageBox::information(this,"connecter","Welcome to CinemApp :D");
     serviceTech d;
         d.setModal(true);
         d.exec();
 }
 else
 {
- QMessageBox::critical(this,"Login failed","incorrect id or pwd");
+ QMessageBox::critical(this,"Login failed","incorrect id or pwd :(");
 }
 }

@@ -11,19 +11,23 @@
 #include <QPrintDialog>
 #include "excel.h"
 #include "QFileDialog"
-
+#include <QIntValidator>
 QSound *sonClick;
 serviceTech::serviceTech(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::serviceTech)
 {
     ui->setupUi(this);
-    /*ui->comboBox_tri->addItem("ID");
-    ui->comboBox_tri->addItem("NOM");
-    ui->comboBox_tri->addItem("PRENOM");
-    ui->comboBox_tri->addItem("NUMTEL");*/
+    ui->lineEdit_IDE->setValidator(new QIntValidator(0,999999,this));
+    ui->lineEdit_supprimerEmploye->setValidator(new QIntValidator(0,999999,this));
+    ui->lineEdit_suppSalle->setValidator(new QIntValidator(0,99,this));
+    ui->numsalle->setValidator(new QIntValidator(0,99,this));
+    ui->lineEdit_numE->setValidator(new QIntValidator(0,99999999,this));
+    ui->capacitesalle->setValidator(new QIntValidator(0,999,this));
     ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
     ui->tableView_salle->setModel(tempSalle.afficherSalle());
+
+
     sonClick=new QSound(":/new/son/Click.wav");
 
 }
@@ -48,6 +52,10 @@ void serviceTech::on_pushButton_ajoutE_clicked()
    ui->lineEdit_nomE->clear();
    ui->lineEdit_prenomE->clear();
    bool test=e.ajouter();
+   if(ui->lineEdit_IDE->text().isEmpty()||ui->lineEdit_numE->text().isEmpty()||ui->lineEdit_nomE->text().isEmpty()||ui->lineEdit_prenomE->text().isEmpty())
+   {
+        test=false;
+   }
    if (test)
    {
        ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
@@ -67,6 +75,10 @@ void serviceTech::on_pushButton_supprimerEmploye_clicked()
 int id=ui->lineEdit_supprimerEmploye->text().toInt();
 ui->lineEdit_supprimerEmploye->clear();
 bool test = tempEmploye.supprimer(id);
+if(ui->lineEdit_supprimerEmploye->text().isEmpty())
+{
+     test=false;
+}
 if (test)
 {
     ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
@@ -92,6 +104,10 @@ void serviceTech::on_pushButton_ajoutsalle_clicked()
     ui->capacitesalle->clear();
     ui->etatsalle->clear();
     bool test=s.ajouterSalle();
+    if(ui->numsalle->text().isEmpty()||ui->capacitesalle->text().isEmpty()||ui->etatsalle->text().isEmpty())
+    {
+         test=false;
+    }
     if (test)
     {
          ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -111,6 +127,10 @@ void serviceTech::on_pushButton_suppSalle_clicked()
     int num=ui->lineEdit_suppSalle->text().toInt();
     ui->lineEdit_suppSalle->clear();
     bool test = tempSalle.supprimerSalle(num);
+    if(ui->lineEdit_suppSalle->text().isEmpty())
+    {
+         test=false;
+    }
     if (test)
     {
         ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -134,6 +154,10 @@ void serviceTech::on_pushButton_modifS_clicked()
         ui->capacitesalle->clear();
         ui->etatsalle->clear();
         bool test=tempSalle.modifSalle(num);
+        if(ui->numsalle->text().isEmpty()||ui->capacitesalle->text().isEmpty()||ui->etatsalle->text().isEmpty())
+        {
+             test=false;
+        }
         if(test)
         {
            ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -157,6 +181,10 @@ void serviceTech::on_pushButton_modifEmp_clicked()
     ui->lineEdit_nomE->clear();
     ui->lineEdit_prenomE->clear();
     bool test=tempEmploye.modifier(id);
+    if(ui->lineEdit_IDE->text().isEmpty()||ui->lineEdit_numE->text().isEmpty()||ui->lineEdit_nomE->text().isEmpty()||ui->lineEdit_prenomE->text().isEmpty())
+    {
+         test=false;
+    }
     if (test)
     {
         ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
