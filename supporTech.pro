@@ -1,6 +1,10 @@
 QT       += core gui sql
 QT += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += widgets multimedia
+QT += serialport
+TARGET = test_son
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -13,8 +17,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
+RC_ICONS = cinemapp.ico
 SOURCES += \
+    arduino.cpp \
     connexion.cpp \
     employe.cpp \
     excel.cpp \
@@ -26,6 +31,7 @@ SOURCES += \
     servicetech.cpp
 
 HEADERS += \
+    arduino.h \
     connexion.h \
     employe.h \
     excel.h \
@@ -45,4 +51,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    cinemApp.qrc
+    cinemApp.qrc \
+    click_son.qrc \
+    transtations.qrc

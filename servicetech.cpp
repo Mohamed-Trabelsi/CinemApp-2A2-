@@ -11,6 +11,8 @@
 #include <QPrintDialog>
 #include "excel.h"
 #include "QFileDialog"
+
+QSound *sonClick;
 serviceTech::serviceTech(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::serviceTech)
@@ -22,6 +24,7 @@ serviceTech::serviceTech(QWidget *parent) :
     ui->comboBox_tri->addItem("NUMTEL");*/
     ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
     ui->tableView_salle->setModel(tempSalle.afficherSalle());
+    sonClick=new QSound(":/new/son/Click.wav");
 
 }
 
@@ -34,6 +37,7 @@ serviceTech::~serviceTech()
 
 void serviceTech::on_pushButton_ajoutE_clicked()
 {
+    sonClick->play();
    int id=ui->lineEdit_IDE->text().toInt();
    int numTel=ui->lineEdit_numE->text().toInt();
    QString nom=ui->lineEdit_nomE->text();
@@ -59,6 +63,7 @@ void serviceTech::on_pushButton_ajoutE_clicked()
 
 void serviceTech::on_pushButton_supprimerEmploye_clicked()
 {
+    sonClick->play();
 int id=ui->lineEdit_supprimerEmploye->text().toInt();
 ui->lineEdit_supprimerEmploye->clear();
 bool test = tempEmploye.supprimer(id);
@@ -78,6 +83,7 @@ else
 
 void serviceTech::on_pushButton_ajoutsalle_clicked()
 {
+    sonClick->play();
     int num=ui->numsalle->text().toInt();
     int capacite=ui->capacitesalle->text().toInt();
     QString etat=ui->etatsalle->text();
@@ -101,6 +107,7 @@ void serviceTech::on_pushButton_ajoutsalle_clicked()
 
 void serviceTech::on_pushButton_suppSalle_clicked()
 {
+    sonClick->play();
     int num=ui->lineEdit_suppSalle->text().toInt();
     ui->lineEdit_suppSalle->clear();
     bool test = tempSalle.supprimerSalle(num);
@@ -119,6 +126,7 @@ void serviceTech::on_pushButton_suppSalle_clicked()
 
 void serviceTech::on_pushButton_modifS_clicked()
 {
+    sonClick->play();
     int num=ui->numsalle->text().toInt();
         tempSalle.setCapacite(ui->capacitesalle->text().toInt());
         tempSalle.setEtat(ui->etatsalle->text());
@@ -139,6 +147,7 @@ void serviceTech::on_pushButton_modifS_clicked()
 
 void serviceTech::on_pushButton_modifEmp_clicked()
 {
+    sonClick->play();
     int id=ui->lineEdit_IDE->text().toInt();
     tempEmploye.setNom(ui->lineEdit_nomE->text());
     tempEmploye.setPrenom(ui->lineEdit_prenomE->text());
@@ -163,13 +172,14 @@ void serviceTech::on_pushButton_modifEmp_clicked()
 
 void serviceTech::on_Tri_clicked()
 {
-
+sonClick->play();
     ui->tableView_employe->setModel(tempEmploye.affichageTrier());
 }
 
 
 void serviceTech::on_pushButton_pdf_clicked()
 {
+    sonClick->play();
     QSqlDatabase db;
                 QTableView tableView_salle;
                 QSqlQueryModel * Modal=new  QSqlQueryModel();
@@ -246,12 +256,6 @@ void serviceTech::on_pushButton_pdf_clicked()
                       QPixmap pixmap(":/img/aze.png");
                      lab.setPixmap(pixmap);
                      QPainter painter(&lab);
-                     //QPrinter printer(QPrinter::PrinterResolution);
-
-                     //pixmap.load("aze.png");
-                     //painter.drawPixmap(0,0,this->width(),this->height(),pixmap);
-                     //painter.drawPixmap(10,10,50,50, pixmap);
-
                      document->print(&printer);
                  }
 
@@ -267,6 +271,7 @@ void serviceTech::on_pushButton_pdf_clicked()
 
 void serviceTech::on_expoter_pdf_clicked()
 {
+    sonClick->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())
@@ -289,7 +294,8 @@ void serviceTech::on_expoter_pdf_clicked()
         }
 }
 void Salle::statistique(QVector<double>* ticks,QVector<QString> *labels)
-{   QSqlQuery q;
+{
+    QSqlQuery q;
     int i=0;
     q.exec("select NUMSALLE from SALLES");
     while (q.next()) {
@@ -302,6 +308,7 @@ void Salle::statistique(QVector<double>* ticks,QVector<QString> *labels)
 void serviceTech::on_tabWidget_currentChanged(int index)
 {
     // set dark background gradient:
+
               QLinearGradient gradient(0, 0, 0, 400);
               gradient.setColorAt(0, QColor(90, 90, 90));
               gradient.setColorAt(0.38, QColor(105, 105, 105));

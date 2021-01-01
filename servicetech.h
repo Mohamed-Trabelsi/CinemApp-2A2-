@@ -4,6 +4,7 @@
 #include "salle.h"
 #include <QDialog>
 #include <qradiobutton.h>
+#include <QSound>
 namespace Ui {
 class serviceTech;
 }
