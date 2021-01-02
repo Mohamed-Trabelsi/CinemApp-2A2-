@@ -370,7 +370,7 @@ void kiosque::on_pushButton_PDFProd_clicked()
 
                  delete document;
 }
-void kiosque::on_lineEdit_rechercheP_textChanged(const QString &arg1)//recherche produit//
+/*void kiosque::on_lineEdit_rechercheP_textChanged(const QString &arg1)//recherche produit//
 {
     QString ch = arg1;
 
@@ -381,7 +381,7 @@ void kiosque::on_lineEdit_rechercheP_textChanged(const QString &arg1)//recherche
                 else {
                   ui->tableView->setModel(tempProduit.rechercher(ch)) ;
                 }
-}
+}*/
 void kiosque::on_EXCELPr_clicked()
 {
     son->play();
@@ -767,3 +767,115 @@ void kiosque::on_CHAT_clicked()
     ui->lineEdit->clear();
 }
 
+
+void kiosque::on_reafficher_rechproduit_clicked()
+{
+    son->play();
+        ui->rech_nom->setText("");
+        ui->rech_quantite->setText("");
+      ui->tableView->setModel(tempProduit.afficher());
+}
+
+void kiosque::on_rechercher_P_clicked()
+{
+    son->play();
+       if (ui->checkBox_nom->isChecked())
+       { QString nom=ui->rech_nom->text();
+           QSqlQueryModel *verif=tempProduit.rechercher_nom(nom);
+           if (verif!=nullptr)
+           {
+               ui->tableView->setModel(verif);
+
+           }
+        }
+
+
+           if (ui->checkBox_categorie->isChecked())
+       { QString categorie=ui->rech_categorie->currentText();
+           QSqlQueryModel *verif=tempProduit.rechercher_categorie(categorie);
+           if (verif!=nullptr)
+           {
+
+               ui->tableView->setModel(verif);
+
+           }
+        }
+
+               if (ui->checkBox_quantite->isChecked())
+       { int quantite=ui->rech_quantite->text() .toInt();
+           QSqlQueryModel *verif=tempProduit.rechercher_quantite(quantite);
+           if (verif!=nullptr)
+           {
+
+               ui->tableView->setModel(verif);
+
+           }
+        }
+
+                   if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_nom->isChecked()))
+       {
+           int quantite=ui->rech_quantite->text() .toInt();
+           QString nom=ui->rech_nom->text();
+
+                       QSqlQueryModel *verif=tempProduit.rechercher_nomQuantite(nom,quantite);
+                       if (verif!=nullptr)
+                       {
+                           ui->tableView->setModel(verif);
+
+                       }
+
+       }
+
+                       if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_categorie->isChecked()))
+       {
+           QString categorie=ui->rech_categorie->currentText();
+          int quantite=ui->rech_quantite->text() .toInt();
+
+
+                       QSqlQueryModel *verif=tempProduit.rechercher_quantitecategorie(quantite,categorie);
+                       if (verif!=nullptr)
+                       {
+                           ui->tableView->setModel(verif);
+
+                       }
+
+
+       }
+
+                           if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked()))
+       {
+          QString nom=ui->rech_nom->text();
+          QString categorie=ui->rech_categorie->currentText();
+
+
+                       QSqlQueryModel *verif=tempProduit.rechercher_nomcategorie(nom,categorie);
+                       if (verif!=nullptr)
+                       {
+                           ui->tableView->setModel(verif);
+
+
+
+                       }
+
+
+
+                               if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked())&&(ui->checkBox_quantite->isChecked()))
+    {
+
+        QString categorie=ui->rech_categorie->currentText();
+        QString nom=ui->rech_nom->text();
+        int quantite=ui->rech_quantite->text() .toInt();
+
+
+                    QSqlQueryModel *verif=tempProduit.rechercher_tous(nom,categorie,quantite);
+                    if (verif!=nullptr)
+                    {
+
+                        ui->tableView->setModel(verif);
+
+                    }
+
+
+    } // else QMessageBox::warning(this,"erreur","Aucun critére n'est coché");
+    }
+}

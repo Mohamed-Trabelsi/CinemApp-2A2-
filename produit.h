@@ -21,7 +21,14 @@ public:
     QSqlQueryModel *afficher();
     bool supprimer(int  );
     bool modifier(int);//**//
-    QSqlQueryModel *rechercher(QString);
+   // QSqlQueryModel *rechercher(QString);
+    QSqlQueryModel * rechercher_nom(QString );
+     QSqlQueryModel * rechercher_categorie(QString  );
+     QSqlQueryModel * rechercher_quantite(int );
+     QSqlQueryModel * rechercher_nomcategorie(QString, QString);
+      QSqlQueryModel * rechercher_nomQuantite(QString , int );
+       QSqlQueryModel * rechercher_quantitecategorie(int , QString );
+       QSqlQueryModel * rechercher_tous( QString ,  QString,int );
     void statistique(QVector<double>* ticks,QVector<QString> *labels);
     QSqlQueryModel * trie_produitQ();
     QSqlQueryModel * trie_produitN();

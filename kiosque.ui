@@ -484,16 +484,6 @@ background-repeat:no-repeat;
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_rechercheP">
-     <property name="geometry">
-      <rect>
-       <x>540</x>
-       <y>310</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_36">
      <property name="geometry">
       <rect>
@@ -602,10 +592,10 @@ background-repeat:no-repeat;
     <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
-       <x>320</x>
+       <x>310</x>
        <y>290</y>
-       <width>121</width>
-       <height>81</height>
+       <width>211</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -635,8 +625,8 @@ background-repeat:no-repeat;
      <widget class="QRadioButton" name="radioButton_TRIqProd">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>50</y>
+        <x>80</x>
+        <y>30</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -706,23 +696,123 @@ background-repeat:no-repeat;
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QCheckBox" name="checkBox_nom">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>310</y>
-       <width>81</width>
-       <height>21</height>
+       <x>310</x>
+       <y>360</y>
+       <width>70</width>
+       <height>17</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>MS Reference Sans Serif</family>
-       <pointsize>10</pointsize>
-      </font>
+     <property name="text">
+      <string>nom</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_categorie">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>360</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
      </property>
      <property name="text">
-      <string>RECHERCHE</string>
+      <string>categorie</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_quantite">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>360</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>quantité </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rech_nom">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>400</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rech_quantite">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>400</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="rech_categorie">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>400</y>
+       <width>69</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>local</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>importe</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="rechercher_P">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>430</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+     </property>
+     <property name="text">
+      <string>rechercher</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="reafficher_rechproduit">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>400</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton::hover
+{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511, x2:1, y2:0.511, stop:0 rgba(0, 207, 179, 255),stop:1 rgb(108, 135, 255));
+
+}</string>
+     </property>
+     <property name="text">
+      <string>réafficher</string>
      </property>
     </widget>
    </widget>

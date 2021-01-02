@@ -58,6 +58,10 @@ private slots:
     void on_CHAT_clicked();
 
 
+    void on_reafficher_rechproduit_clicked();
+
+    void on_rechercher_P_clicked();
+
 private:
     Ui::kiosque *ui;
     Produit tempProduit;
