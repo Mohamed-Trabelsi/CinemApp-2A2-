@@ -82,7 +82,7 @@ QTabBar::tab:selected{background-color:#363535 ; color:#008BEA ;}
        <x>290</x>
        <y>0</y>
        <width>20</width>
-       <height>431</height>
+       <height>441</height>
       </rect>
      </property>
      <property name="orientation">
@@ -302,7 +302,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
        <x>310</x>
        <y>10</y>
        <width>321</width>
-       <height>81</height>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
@@ -319,7 +319,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>40</y>
+        <y>30</y>
         <width>84</width>
         <height>28</height>
        </rect>
@@ -414,7 +414,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>130</y>
+       <y>110</y>
        <width>431</width>
        <height>151</height>
       </rect>
@@ -424,7 +424,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
      <property name="geometry">
       <rect>
        <x>450</x>
-       <y>100</y>
+       <y>90</y>
        <width>141</width>
        <height>16</height>
       </rect>
@@ -445,7 +445,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;}</string>
      <property name="geometry">
       <rect>
        <x>680</x>
-       <y>290</y>
+       <y>270</y>
        <width>45</width>
        <height>45</height>
       </rect>
@@ -593,7 +593,7 @@ background-repeat:no-repeat;
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>290</y>
+       <y>270</y>
        <width>211</width>
        <height>51</height>
       </rect>
@@ -665,8 +665,8 @@ background-repeat:no-repeat;
     <widget class="QPushButton" name="EXCELPr">
      <property name="geometry">
       <rect>
-       <x>680</x>
-       <y>340</y>
+       <x>620</x>
+       <y>270</y>
        <width>45</width>
        <height>45</height>
       </rect>
@@ -699,8 +699,8 @@ background-repeat:no-repeat;
     <widget class="QCheckBox" name="checkBox_nom">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>360</y>
+       <x>320</x>
+       <y>350</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -712,8 +712,8 @@ background-repeat:no-repeat;
     <widget class="QCheckBox" name="checkBox_categorie">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>360</y>
+       <x>430</x>
+       <y>350</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -725,8 +725,8 @@ background-repeat:no-repeat;
     <widget class="QCheckBox" name="checkBox_quantite">
      <property name="geometry">
       <rect>
-       <x>470</x>
-       <y>360</y>
+       <x>520</x>
+       <y>350</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -738,9 +738,9 @@ background-repeat:no-repeat;
     <widget class="QLineEdit" name="rech_nom">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>400</y>
-       <width>101</width>
+       <x>320</x>
+       <y>380</y>
+       <width>91</width>
        <height>20</height>
       </rect>
      </property>
@@ -749,7 +749,7 @@ background-repeat:no-repeat;
      <property name="geometry">
       <rect>
        <x>530</x>
-       <y>400</y>
+       <y>380</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -759,7 +759,7 @@ background-repeat:no-repeat;
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>400</y>
+       <y>380</y>
        <width>69</width>
        <height>22</height>
       </rect>
@@ -778,8 +778,8 @@ background-repeat:no-repeat;
     <widget class="QPushButton" name="rechercher_P">
      <property name="geometry">
       <rect>
-       <x>610</x>
-       <y>430</y>
+       <x>600</x>
+       <y>370</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -798,7 +798,7 @@ background-repeat:no-repeat;
     <widget class="QPushButton" name="reafficher_rechproduit">
      <property name="geometry">
       <rect>
-       <x>610</x>
+       <x>600</x>
        <y>400</y>
        <width>75</width>
        <height>23</height>
@@ -815,6 +815,54 @@ background-repeat:no-repeat;
       <string>réafficher</string>
      </property>
     </widget>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>330</y>
+       <width>381</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>Recherche</string>
+     </property>
+    </widget>
+    <zorder>groupBox_5</zorder>
+    <zorder>line_2</zorder>
+    <zorder>groupBox_2</zorder>
+    <zorder>groupBox_3</zorder>
+    <zorder>groupBox_4</zorder>
+    <zorder>tableView</zorder>
+    <zorder>label_2</zorder>
+    <zorder>pushButton_PDFProd</zorder>
+    <zorder>label_36</zorder>
+    <zorder>comboBox</zorder>
+    <zorder>label_37</zorder>
+    <zorder>NomModifPr</zorder>
+    <zorder>label_38</zorder>
+    <zorder>label_39</zorder>
+    <zorder>quantieModPr</zorder>
+    <zorder>label_51</zorder>
+    <zorder>PrixModPr</zorder>
+    <zorder>groupBox_7</zorder>
+    <zorder>radioButton_5</zorder>
+    <zorder>radioButton_6</zorder>
+    <zorder>EXCELPr</zorder>
+    <zorder>checkBox_nom</zorder>
+    <zorder>checkBox_categorie</zorder>
+    <zorder>checkBox_quantite</zorder>
+    <zorder>rech_nom</zorder>
+    <zorder>rech_quantite</zorder>
+    <zorder>rech_categorie</zorder>
+    <zorder>rechercher_P</zorder>
+    <zorder>reafficher_rechproduit</zorder>
    </widget>
    <widget class="QWidget" name="Tab_2">
     <attribute name="title">

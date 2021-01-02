@@ -776,6 +776,7 @@ void kiosque::on_reafficher_rechproduit_clicked()
       ui->tableView->setModel(tempProduit.afficher());
 }
 
+
 void kiosque::on_rechercher_P_clicked()
 {
     son->play();
@@ -785,7 +786,6 @@ void kiosque::on_rechercher_P_clicked()
            if (verif!=nullptr)
            {
                ui->tableView->setModel(verif);
-
            }
         }
 
@@ -795,9 +795,7 @@ void kiosque::on_rechercher_P_clicked()
            QSqlQueryModel *verif=tempProduit.rechercher_categorie(categorie);
            if (verif!=nullptr)
            {
-
                ui->tableView->setModel(verif);
-
            }
         }
 
@@ -806,13 +804,11 @@ void kiosque::on_rechercher_P_clicked()
            QSqlQueryModel *verif=tempProduit.rechercher_quantite(quantite);
            if (verif!=nullptr)
            {
-
                ui->tableView->setModel(verif);
-
            }
         }
 
-                   if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_nom->isChecked()))
+          if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_nom->isChecked()))
        {
            int quantite=ui->rech_quantite->text() .toInt();
            QString nom=ui->rech_nom->text();
@@ -821,13 +817,11 @@ void kiosque::on_rechercher_P_clicked()
                        if (verif!=nullptr)
                        {
                            ui->tableView->setModel(verif);
-
                        }
 
        }
-
-                       if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_categorie->isChecked()))
-       {
+               if ((ui->checkBox_quantite->isChecked())&&(ui->checkBox_categorie->isChecked()))
+          {
            QString categorie=ui->rech_categorie->currentText();
           int quantite=ui->rech_quantite->text() .toInt();
 
@@ -836,13 +830,10 @@ void kiosque::on_rechercher_P_clicked()
                        if (verif!=nullptr)
                        {
                            ui->tableView->setModel(verif);
-
                        }
 
-
        }
-
-                           if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked()))
+               if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked()))
        {
           QString nom=ui->rech_nom->text();
           QString categorie=ui->rech_categorie->currentText();
@@ -852,14 +843,9 @@ void kiosque::on_rechercher_P_clicked()
                        if (verif!=nullptr)
                        {
                            ui->tableView->setModel(verif);
-
-
-
                        }
 
-
-
-                               if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked())&&(ui->checkBox_quantite->isChecked()))
+    if ((ui->checkBox_nom->isChecked())&&(ui->checkBox_categorie->isChecked())&&(ui->checkBox_quantite->isChecked()))
     {
 
         QString categorie=ui->rech_categorie->currentText();
@@ -870,9 +856,7 @@ void kiosque::on_rechercher_P_clicked()
                     QSqlQueryModel *verif=tempProduit.rechercher_tous(nom,categorie,quantite);
                     if (verif!=nullptr)
                     {
-
                         ui->tableView->setModel(verif);
-
                     }
 
 

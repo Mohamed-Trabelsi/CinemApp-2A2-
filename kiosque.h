@@ -37,7 +37,6 @@ private slots:
     void on_pushButton_PDFProd_clicked();
     void on_radioButton_TRInProd_clicked();
     void on_radioButton_TRIqProd_clicked();
-    void on_lineEdit_rechercheP_textChanged(const QString &arg1);
     void on_TriDateFacture_clicked();
     void on_TriidFacture_clicked();
     void on_rehercheFacture_textChanged(const QString &arg1);
@@ -56,10 +55,7 @@ private slots:
     void on_comboBox_2_currentTextChanged(const QString &arg1);
     void leer();
     void on_CHAT_clicked();
-
-
     void on_reafficher_rechproduit_clicked();
-
     void on_rechercher_P_clicked();
 
 private:
