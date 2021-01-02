@@ -30,8 +30,8 @@
     <widget class="QTabWidget" name="tabWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
+       <x>0</x>
+       <y>40</y>
        <width>971</width>
        <height>571</height>
       </rect>
@@ -105,8 +105,8 @@
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>160</y>
+         <x>320</x>
+         <y>150</y>
          <width>93</width>
          <height>28</height>
         </rect>
@@ -173,7 +173,7 @@
       <widget class="QLabel" name="label_13">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>50</x>
          <y>410</y>
          <width>71</width>
          <height>20</height>
@@ -186,7 +186,7 @@
       <widget class="QLabel" name="label_14">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>50</x>
          <y>440</y>
          <width>71</width>
          <height>20</height>
@@ -199,7 +199,7 @@
       <widget class="QLineEdit" name="lineEdit_5">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>160</x>
          <y>410</y>
          <width>113</width>
          <height>22</height>
@@ -209,7 +209,7 @@
       <widget class="QLineEdit" name="lineEdit_6">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>160</x>
          <y>440</y>
          <width>113</width>
          <height>22</height>
@@ -219,11 +219,14 @@
       <widget class="QPushButton" name="pushButton_recherche">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>320</x>
          <y>430</y>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
        </property>
        <property name="text">
         <string>rechercher</string>
@@ -274,6 +277,9 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
+       </property>
        <property name="text">
         <string>modifier</string>
        </property>
@@ -282,7 +288,7 @@
        <property name="geometry">
         <rect>
          <x>330</x>
-         <y>20</y>
+         <y>10</y>
          <width>201</width>
          <height>41</height>
         </rect>
@@ -362,6 +368,9 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
+       </property>
        <property name="text">
         <string>supprimer</string>
        </property>
@@ -402,7 +411,7 @@
       <widget class="QLineEdit" name="lineEdit_17">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>160</x>
          <y>470</y>
          <width>113</width>
          <height>22</height>
@@ -412,7 +421,7 @@
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>40</x>
          <y>470</y>
          <width>55</width>
          <height>16</height>
@@ -472,11 +481,14 @@
       <widget class="QPushButton" name="pushButton_pdf">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>200</y>
+         <x>320</x>
+         <y>190</y>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
        </property>
        <property name="text">
         <string>exporter pdf</string>
@@ -527,7 +539,7 @@
          <x>470</x>
          <y>-20</y>
          <width>21</width>
-         <height>291</height>
+         <height>591</height>
         </rect>
        </property>
        <property name="orientation">
@@ -576,7 +588,7 @@
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>360</x>
+         <x>170</x>
          <y>290</y>
          <width>171</width>
          <height>21</height>
@@ -667,6 +679,9 @@
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
+       </property>
        <property name="text">
         <string>ajout</string>
        </property>
@@ -675,10 +690,13 @@
        <property name="geometry">
         <rect>
          <x>780</x>
-         <y>90</y>
+         <y>130</y>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
        </property>
        <property name="text">
         <string>rechercher</string>
@@ -744,7 +762,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>-10</y>
+         <y>-30</y>
          <width>931</width>
          <height>561</height>
         </rect>
@@ -785,10 +803,10 @@
       <widget class="QTableView" name="tableViewclient">
        <property name="geometry">
         <rect>
-         <x>290</x>
+         <x>120</x>
          <y>330</y>
-         <width>341</width>
-         <height>192</height>
+         <width>281</width>
+         <height>191</height>
         </rect>
        </property>
       </widget>
@@ -818,9 +836,9 @@
       <widget class="QComboBox" name="comboBox_2">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>10</x>
          <y>400</y>
-         <width>91</width>
+         <width>101</width>
          <height>22</height>
         </rect>
        </property>
@@ -843,14 +861,92 @@
       <widget class="QPushButton" name="excel">
        <property name="geometry">
         <rect>
-         <x>680</x>
+         <x>10</x>
+         <y>430</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
+       </property>
+       <property name="text">
+        <string>exporter excel</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="envoyer">
+       <property name="geometry">
+        <rect>
+         <x>800</x>
          <y>380</y>
          <width>93</width>
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton { padding: 5px; border-radius: 5px; background-color:rgb(101, 190, 155); font-weight: bold; } QPushButton:hover { color :white; }</string>
+       </property>
        <property name="text">
-        <string>exporter excel</string>
+        <string>envoyer</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="adresse">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>340</y>
+         <width>131</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="contenu">
+       <property name="geometry">
+        <rect>
+         <x>650</x>
+         <y>380</y>
+         <width>131</width>
+         <height>101</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>670</x>
+         <y>300</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>envoyer mail</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>340</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>adresse</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>410</y>
+         <width>55</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>contenu</string>
        </property>
       </widget>
       <zorder>label_30</zorder>
@@ -879,6 +975,12 @@
       <zorder>label_33</zorder>
       <zorder>comboBox_2</zorder>
       <zorder>excel</zorder>
+      <zorder>envoyer</zorder>
+      <zorder>adresse</zorder>
+      <zorder>contenu</zorder>
+      <zorder>label_3</zorder>
+      <zorder>label_4</zorder>
+      <zorder>label_19</zorder>
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">

@@ -140,13 +140,13 @@ QString test_tri(int c)
 QSqlQueryModel* Caisse::tricaisse(int i)
 {
     QString col = test_tri(i);
-    QSqlQueryModel *model = new QSqlQueryModel() ;
-    QString header = "SELECT * FROM caisse ORDER BY "+col;
-    model->setQuery(header);
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("TYPE"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("MONTANT"));
+      QSqlQueryModel *model = new QSqlQueryModel() ;
+      QString header = "SELECT * FROM caisse ORDER BY "+col;
+      model->setQuery(header);
+      model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUM"));
+      model->setHeaderData(1, Qt::Horizontal, QObject::tr("TYPE"));
+      model->setHeaderData(2, Qt::Horizontal, QObject::tr("MONTANT"));
 
 
-    return model ;
+      return model ;
 }

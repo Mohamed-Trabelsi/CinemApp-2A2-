@@ -18,7 +18,7 @@
 #include <QPainter>
 #include <QTextStream>
 #include "qcustomplot.h"
-//#include <src/SmtpMime>
+#include <src/SmtpMime>
 #include <QFile>
 #include "excel.h"
 #include "notification.h"
@@ -33,6 +33,10 @@ clientetfinance::clientetfinance(QWidget *parent) :
          ui->lineEdit_11->setValidator(new QRegExpValidator(QRegExp("[a-z-A-Z]+"),this));
           ui->lineEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]*"),this));
            ui->lineEdit_15->setValidator(new QRegExpValidator(QRegExp("[a-z-A-Z]+"),this));
+           ui->adresse->setValidator(new QRegExpValidator(QRegExp("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}\\b")));
+           ui->lineEdit_12->setValidator(new QRegExpValidator(QRegExp("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}\\b")));
+
+
            //ui->lineEdit_2->setValidator(new QRegExpValidator(QRegExp("[0-9]*"),this));
     ui->comboBox_id->setModel(caissetemp.afficher1());
 }
@@ -70,11 +74,13 @@ void clientetfinance::on_pushButton_5_clicked()
      Client  c(id,nom,prenom,adresse);
      bool test=c.ajouterClient();
      notification n;
-     n.notificationC();
+
      if(test){
 ui->tableViewclient->setModel(clienttemp.afficher());
+ n.notificationC();
          QMessageBox::information(nullptr,QObject::tr("ajout"),QObject::tr("ajout avec succés \n click ok to exit")
                  ,QMessageBox::Ok);
+
                                 }
      else
          QMessageBox::critical(nullptr,QObject::tr("ajout"),QObject::tr("ajout failed \n click cancel to exit")
@@ -87,16 +93,23 @@ ui->tableViewclient->setModel(clienttemp.afficher());
 
 void clientetfinance::on_pushButton_2_clicked()
 {
+
     int num=ui->lineEdit_3->text().toInt();
     bool test=caissetemp.supprimerBudget(num);
+    if(ui->lineEdit_3->text().contains(QRegExp("^[1-9]"))==0){
+
+            QMessageBox::critical(nullptr, QObject::tr("ERREUR"),
+                                   QObject::tr("ERREUR.\n"
+                                               "Click Cancel to exit."), QMessageBox::Cancel);
+        } else
     if(test){
 ui->tableViewcaisse->setModel(caissetemp.afficher1());
         QMessageBox::information(nullptr,QObject::tr("suppression"),QObject::tr("suppression avec succés \n click ok to exit")
                 ,QMessageBox::Ok);
                                }
-    else
+  /*  else
         QMessageBox::critical(nullptr,QObject::tr("suppression"),QObject::tr("suppression failed \n click cancel to exit")
-                ,QMessageBox::Ok);
+                ,QMessageBox::Ok);*/
 }
 
 
@@ -128,47 +141,46 @@ void clientetfinance::on_pushButton_4_clicked()
 void clientetfinance::on_pushButton_recherche_clicked()
 {
     int num = ui->lineEdit_5->text().toInt();
-        QString type = ui->lineEdit_6->text();
-       float montant=ui->lineEdit_17->text().toFloat();
+            QString type = ui->lineEdit_6->text();
+           float montant=ui->lineEdit_17->text().toFloat();
 
-            QString txt=ui->lineEdit_5->text();
-             QString txt1=ui->lineEdit_17->text();
-              QString txt2=ui->lineEdit_6->text();
-            ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
-             ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));
-                  ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));
+                QString txt=ui->lineEdit_5->text();
+                 QString txt1=ui->lineEdit_17->text();
+                  QString txt2=ui->lineEdit_6->text();
+                ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
+                 ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));
+                      ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));
 
-                  if(montant==0&&type==""){
-                       ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
-                  }
-           else    if(num==0&&type==""){
-                QString txt1=ui->lineEdit_17->text();
-               ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));}
-
-            else    if(num==0&&montant==0){
-                QString txt2=ui->lineEdit_6->text();
-              ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));}
-
-                  else    if(num==0/*&&montant==0*/){
-
-                       QString txt2=ui->lineEdit_6->text();
-                       QString txt1=ui->lineEdit_17->text();
-                      ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));
-                    ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));}
-                  else    if(montant==0/*&&type==""*/){
-                      QString txt=ui->lineEdit_5->text();
-                       QString txt1=ui->lineEdit_6->text();
-                      ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
-                       ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt1));
-
+                      if(montant==0&&type==""){
+                           ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
                       }
-                  else    if(type==""){
-                      QString txt=ui->lineEdit_5->text();
-                        QString txt2=ui->lineEdit_17->text();
-                       ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
-                      ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt2));
-                      }
+               else    if(num==0&&type==""){
+                    QString txt1=ui->lineEdit_17->text();
+                   ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));}
 
+                else    if(num==0&&montant==0){
+                    QString txt2=ui->lineEdit_6->text();
+                  ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));}
+
+                      else    if(num==0/*&&montant==0*/){
+
+                           QString txt2=ui->lineEdit_6->text();
+                           QString txt1=ui->lineEdit_17->text();
+                          ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt1));
+                        ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt2));}
+                      else    if(montant==0/*&&type==""*/){
+                          QString txt=ui->lineEdit_5->text();
+                           QString txt1=ui->lineEdit_6->text();
+                          ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
+                           ui->tableViewcaisse->setModel(caissetemp.rechercher1(txt1));
+
+                          }
+                      else    if(type==""){
+                          QString txt=ui->lineEdit_5->text();
+                            QString txt2=ui->lineEdit_17->text();
+                           ui->tableViewcaisse->setModel(caissetemp.rechercher(txt));
+                          ui->tableViewcaisse->setModel(caissetemp.rechercher2(txt2));
+                          }
 
 }
 
@@ -387,11 +399,7 @@ void clientetfinance::on_tabWidget_currentChanged(int index)
 
 void clientetfinance::on_comboBox_currentIndexChanged(int index)
 {
-    /*if (index==0)
-      {
-            ui->tableViewcaisse->setModel(caissetemp.afficher1());
-      }
-*/
+  
       {
             ui->tableViewcaisse->setModel(caissetemp.tricaisse(index));
       }
@@ -430,3 +438,30 @@ void clientetfinance::on_comboBox_2_currentIndexChanged(int index)
 }
 
 
+
+void clientetfinance::on_envoyer_clicked()
+{
+    SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+              smtp.setUser("ecinema.client@gmail.com");
+              smtp.setPassword("esprit2020");
+              MimeMessage message;
+              message.setSender(new EmailAddress("ecinema.client@gmail.com", "ecinema client"));
+              QString emaiil =ui->adresse->text();
+              message.addRecipient(new EmailAddress(emaiil, ""));
+              message.setSubject("client informations");
+              MimeText text;
+              QString emaill = ui->contenu->toPlainText();
+              text.setText(emaill);
+              message.addPart(&text);
+              smtp.connectToHost();
+              smtp.login();
+              if(smtp.sendMail(message))
+              {
+                  QMessageBox::information(this, "PAS D'ERREUR", "Envoyé");
+              }
+              else
+              {
+                  QMessageBox::critical(this, "ERREUR", "Non Envoyé (probleme de connexion)");
+              }
+              smtp.quit();
+}

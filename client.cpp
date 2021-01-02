@@ -92,7 +92,7 @@ QString test_tri1(int c)
 {
     if (c==0)
     {
-        return "identifiant" ;
+        return "id" ;
     }
     else if (c==1)
     {
@@ -100,25 +100,22 @@ QString test_tri1(int c)
     }
     else if (c==2)
     {
-     return "prenom" ;
-    }
-    else if (c==3)
-    {
      return "adresse" ;
     }
+
     return "NULL";
 }
 QSqlQueryModel* Client::triclient(int i)
 {
     QString col = test_tri1(i);
-    QSqlQueryModel *model = new QSqlQueryModel() ;
-    QString header = "SELECT * FROM client ORDER BY "+col;
-    model->setQuery(header);
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("identifiant"));
-    model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse"));
+       QSqlQueryModel *model = new QSqlQueryModel() ;
+       QString header = "SELECT * FROM client ORDER BY "+col;
+       model->setQuery(header);
+       model->setHeaderData(0, Qt::Horizontal, QObject::tr("identifiant"));
+       model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+       model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+       model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse"));
 
 
-    return model ;
+       return model ;
 }

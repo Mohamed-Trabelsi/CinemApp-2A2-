@@ -58,6 +58,8 @@ private slots:
 
     void on_comboBox_id_currentIndexChanged(const QString &arg1);
 
+    void on_envoyer_clicked();
+
 private:
     Ui::clientetfinance *ui;
     Client clienttemp;
