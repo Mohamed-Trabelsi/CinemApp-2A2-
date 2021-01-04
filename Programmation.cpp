@@ -4,7 +4,7 @@
 #include "ticket.h"
 #include "server.h"
 #include "client.h"
-#include "notification.h"
+#include "notificationP.h"
 #include "excel.h"
 
 #include <QSystemTrayIcon>
@@ -37,6 +37,8 @@ Programmation::~Programmation()
 
 void Programmation::on_pushButton_Chat_clicked() //chat
 {
+     notification n;
+     n.notificationChat();
     sonClick->play();
     serverdialog = new Server(this);
     serverdialog->show();
@@ -47,7 +49,7 @@ void Programmation::on_pushButton_Chat_clicked() //chat
 void Programmation::on_pushButton_ajoutTicket_clicked()
 {
     sonClick->play();
-    notification n;
+  notification n;
    int ID=ui->lineEdit_IDE->text().toInt();
    int NbPlaces=ui->lineEdit_NbPlaces->text().toInt();
    QString NomC=ui->lineEdit_nomC->text();
@@ -62,8 +64,7 @@ void Programmation::on_pushButton_ajoutTicket_clicked()
    bool test=t.ajouterTicket();
    if (test)
    {
-       n.setPopupText("Un Ticket a été ajouté");
-                           n.show();
+        n.notificationAT();
        ui->tableView_Ticket->setModel(tempTicket.afficherTicket());
        QMessageBox::information(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout avec succès \n click cancel to exit")
                ,QMessageBox::Cancel);
@@ -84,8 +85,7 @@ ui->lineEdit_supprimerTicket->clear();
 bool test = tempTicket.supprimerTicket(id);
 if (test)
 {
-    n.setPopupText("Un Ticket a été supprimé");
-                        n.show();
+  n.notificationST();
     ui->tableView_Ticket->setModel(tempTicket.afficherTicket());
     QMessageBox::information(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression avec succès \n click cancel to exit")
             ,QMessageBox::Cancel);
@@ -114,9 +114,8 @@ void Programmation::on_pushButton_ajoutFilm_clicked()
     bool test=f.ajouterFilm();
     if (test)
     {
-        n.setPopupText("Un Film a été ajouté");
-                            n.show();
-                         //   mysystem->showMessage(tr("Notification"),tr("Un Film a été ajouté"));
+        n.notificationAF();
+
          ui->tableView_Film->setModel(tempFilm.afficherFilm());
         QMessageBox::information(nullptr,QObject::tr("Ajout"),QObject::tr("Ajout avec succés \n click cancel to exit")
                 ,QMessageBox::Cancel);
@@ -137,8 +136,7 @@ void Programmation::on_pushButton_suppFilm_clicked()
     bool test = tempFilm.supprimerFilm(ID);
     if (test)
     {
-        n.setPopupText("Un Film a été supprimé");
-                            n.show();
+    n.notificationSF();
         ui->tableView_Film->setModel(tempFilm.afficherFilm());
         QMessageBox::information(nullptr,QObject::tr("Suppression"),QObject::tr("Suppression avec succés \n click cancel to exit")
                 ,QMessageBox::Cancel);
@@ -164,8 +162,7 @@ Ticket t(ID,NomC,NbPlaces,DateF,HeureF);
 bool test=t.modifTicket(ID);
         if(test)
         {
-            n.setPopupText("Un Ticket a été modifié");
-                                n.show();
+       n.notificationMT();
            ui->tableView_Ticket->setModel(tempTicket.afficherTicket());
                     QMessageBox::information(nullptr,QObject::tr("modification"),QObject::tr("modification avec succés \n click ok to exit")
                             ,QMessageBox::Ok);
@@ -191,8 +188,7 @@ void Programmation::on_pushButton_modifFilm_clicked()
 bool test=f.modifFilm(ID);
         if(test)
         {
-            n.setPopupText("Un Film a été modifié");
-                                n.show();
+      n.notificationMF();
            ui->tableView_Film->setModel(tempFilm.afficherFilm());
                     QMessageBox::information(nullptr,QObject::tr("modification"),QObject::tr("modification avec succés \n click ok to exit")
                             ,QMessageBox::Ok);

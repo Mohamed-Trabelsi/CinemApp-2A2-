@@ -31,7 +31,7 @@ SOURCES += \
     film.cpp \
     main.cpp \
     mainwindow.cpp \
-    notification.cpp \
+    notificationP.cpp \
     server.cpp \
     ticket.cpp
 
@@ -42,7 +42,7 @@ HEADERS += \
     excel.h \
     film.h \
     mainwindow.h \
-    notification.h \
+    notificationP.h \
     server.h \
     ticket.h
 

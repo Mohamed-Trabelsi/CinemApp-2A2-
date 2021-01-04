@@ -4,7 +4,7 @@
 #include "ticket.h"
 #include "client.h"
 #include "server.h"
-#include "notification.h"
+#include "notificationP.h"
 #include <QDialog>
 #include <QSound>
 namespace Ui {
