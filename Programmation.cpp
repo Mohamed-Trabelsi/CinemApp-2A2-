@@ -24,9 +24,24 @@ Programmation::Programmation(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Programmation)
 {
+    QRegExp rx("(|\"|/|\\.,|[A-Z,a-z]){30}");
     ui->setupUi(this);
     ui->tableView_Film->setModel(tempFilm.afficherFilm());
     ui->tableView_Ticket->setModel(tempTicket.afficherTicket());
+    ui->lineEdit_IDE->setValidator(new QIntValidator(0,9999, this));
+    ui->lineEdit_ID->setValidator(new QIntValidator(0,9999, this));
+    ui->lineEdit_supprimerTicket->setValidator(new QIntValidator(0,9999, this));
+    ui->lineEdit_suppFilm->setValidator(new QIntValidator(0,9999, this));
+    ui->lineEdit_NbPlaces->setValidator(new QIntValidator(0,100, this));
+    ui->lineEdit_duree->setValidator(new QIntValidator(0,300, this));
+    ui->lineEdit_nomC->setValidator(new QRegExpValidator(rx, this));
+    ui->lineEdit_Nom->setValidator(new QRegExpValidator(rx, this));
+    ui->lineEdit_categorie->setValidator(new QRegExpValidator(rx, this));
+
+
+
+
+
     sonClick=new QSound(":/new/son/Click.wav");
 }
 
