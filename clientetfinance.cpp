@@ -27,6 +27,7 @@ clientetfinance::clientetfinance(QWidget *parent) :
     ui(new Ui::clientetfinance)
 {
     ui->setupUi(this);
+     son=new QSound("://s.wav");
     //ui->tableViewclient->setModel(clienttemp.afficher());
     ui->lineEdit_9->setValidator(new QRegExpValidator(QRegExp("[0-9]*"),this));
          ui->lineEdit_10->setValidator(new QRegExpValidator(QRegExp("[a-z-A-Z]+"),this));
@@ -47,7 +48,7 @@ clientetfinance::~clientetfinance()
 }
 
 void clientetfinance::on_pushButton_clicked()
-{
+{ son->play();
     int num=ui->lineEdit->text().toInt();
     QString type=ui->lineEdit_15->text();
   float montant=ui->lineEdit_2->text().toFloat();
@@ -66,7 +67,7 @@ ui->comboBox_id->setModel(caissetemp.afficher1());
 }
 
 void clientetfinance::on_pushButton_5_clicked()
-{
+{ son->play();
     int id=ui->lineEdit_9->text().toInt();
     QString nom=ui->lineEdit_10->text();
     QString prenom=ui->lineEdit_11->text();
@@ -75,6 +76,10 @@ void clientetfinance::on_pushButton_5_clicked()
      bool test=c.ajouterClient();
      notification n;
 
+
+
+
+        if(adresse.contains("@", Qt::CaseInsensitive)==true){
      if(test){
 ui->tableViewclient->setModel(clienttemp.afficher());
  n.notificationC();
@@ -86,14 +91,16 @@ ui->tableViewclient->setModel(clienttemp.afficher());
          QMessageBox::critical(nullptr,QObject::tr("ajout"),QObject::tr("ajout failed \n click cancel to exit")
                  ,QMessageBox::Ok);
 
+} else
+            QMessageBox::critical(nullptr,QObject::tr("ajout"),QObject::tr("adresse invalide veuillez saisir une adresse correcte \n click cancel to exit")
+                    ,QMessageBox::Ok);
+
 }
-
-
 
 
 void clientetfinance::on_pushButton_2_clicked()
 {
-
+son->play();
     int num=ui->lineEdit_3->text().toInt();
     bool test=caissetemp.supprimerBudget(num);
     if(ui->lineEdit_3->text().contains(QRegExp("^[1-9]"))==0){
@@ -117,7 +124,8 @@ ui->tableViewcaisse->setModel(caissetemp.afficher1());
 
 
 void clientetfinance::on_pushButton_4_clicked()
-{ QString num=ui->comboBox_id->currentText();
+{son->play();
+    QString num=ui->comboBox_id->currentText();
 
     caissetemp.setmontant(ui->lineEdit_8->text().toInt());
     caissetemp.settype(ui->lineEdit_4->text());
@@ -139,7 +147,7 @@ void clientetfinance::on_pushButton_4_clicked()
 
 
 void clientetfinance::on_pushButton_recherche_clicked()
-{
+{ son->play();
     int num = ui->lineEdit_5->text().toInt();
             QString type = ui->lineEdit_6->text();
            float montant=ui->lineEdit_17->text().toFloat();
@@ -188,7 +196,7 @@ void clientetfinance::on_pushButton_recherche_clicked()
 
 
 void clientetfinance::on_pushButton_7_clicked()
-{
+{ son->play();
     int id = ui->lineEdit_13->text().toInt();
         QString nom = ui->lineEdit_14->text();
          QString adresse = ui->lineEdit_19->text();
@@ -216,14 +224,14 @@ void clientetfinance::on_pushButton_triercaisse_clicked()
 }
 
 void clientetfinance::on_pushButton_3_clicked()
-{
+{ son->play();
     ui->tableViewclient->setModel(clienttemp.trierclient());
 }
 
 
 
 void clientetfinance::on_pushButton_pdf_clicked()
-{
+{ son->play();
     QSqlDatabase db;
                 QTableView table_caisse;
                 QSqlQueryModel * Modal=new  QSqlQueryModel();
@@ -440,7 +448,7 @@ void clientetfinance::on_comboBox_2_currentIndexChanged(int index)
 
 
 void clientetfinance::on_envoyer_clicked()
-{
+{ son->play();
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
               smtp.setUser("ecinema.client@gmail.com");
               smtp.setPassword("esprit2020");
@@ -455,6 +463,7 @@ void clientetfinance::on_envoyer_clicked()
               message.addPart(&text);
               smtp.connectToHost();
               smtp.login();
+
               if(smtp.sendMail(message))
               {
                   QMessageBox::information(this, "PAS D'ERREUR", "Envoyé");
@@ -463,5 +472,7 @@ void clientetfinance::on_envoyer_clicked()
               {
                   QMessageBox::critical(this, "ERREUR", "Non Envoyé (probleme de connexion)");
               }
+
+
               smtp.quit();
 }

@@ -86,7 +86,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="cinemapp.qrc">:/Desktop/cinemApp.jpg</pixmap>
+     <pixmap resource="cinemapp.qrc">:/cinemApp.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

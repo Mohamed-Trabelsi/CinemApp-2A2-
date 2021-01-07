@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "client.h"
 #include "caisse.h"
-
+#include <QSound>
 namespace Ui {
 class clientetfinance;
 }
@@ -64,6 +64,7 @@ private:
     Ui::clientetfinance *ui;
     Client clienttemp;
      Caisse caissetemp;
+      QSound *son;
 
 };
 
