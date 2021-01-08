@@ -3,27 +3,52 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
-class Client
+#include <QWidget>
+#include <QTcpSocket>
+#include <QTime>
+#include <QMainWindow>
+
+namespace Ui {
+class Client;
+}
+
+class Client : public QMainWindow
 {
+    Q_OBJECT
+
 public:
-    Client();
-    Client(int,QString,QString,QString);
-    QString getnom(){return nom;}
-    QString getprenom(){return prenom;}
-    int getID(){return id;}
-    QString getadresse(){return adresse;}
-    bool ajouterClient();
-    QSqlQueryModel * afficher();
-    QSqlQueryModel *rechercher_id(QString txt);
-    QSqlQueryModel *rechercher_nom(QString txt);
-    QSqlQueryModel *rechercher_adresse(QString txt);
-    QSqlQueryModel *trierclient();
-    QSqlQueryModel *tri(int i);
-    QSqlQueryModel* triclient(int i);
-private :
-    int id;
-    QString nom,prenom;
-    QString adresse;
+    explicit Client(QWidget *parent = 0);
+    ~Client();
+
+    QHostAddress getServerAddr();
+    quint16 getServerPort();
+    QString getServerName();
+
+protected:
+    void initWindow();
+    void initSocket();
+    void printCurTime();
+    void setConnected();
+    void setConnFlag(bool);
+    bool checkInputInfo();  // check the server info inputted by user
+
+protected slots:
+    void slotConnBtn();
+    void slotSend();
+    void slotRecv();
+    void slotNewConn();
+    void slotConnected();
+    void slotDisConn();
+    void slotHostFound();
+
+private:
+    Ui::Client *ui;
+    QTcpSocket *socket;
+    bool connFlag;  //show the connection status
+    //get the server ip,port from the msg lineEdit inputted by user
+    QString inputSerIp();
+    QString inputSerPort();
+    void showPeerInfo();
 };
 
 #endif // CLIENT_H

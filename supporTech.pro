@@ -1,9 +1,8 @@
-QT       += core gui sql
-QT += printsupport
+QT       += core gui sql network testlib
+QT += printsupport  serialport charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QT += widgets multimedia
-TARGET = test_son
-
+TARGET=app
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -18,7 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 RC_ICONS = cinemapp.ico
 SOURCES += \
+    ClientF.cpp \
     Programmation.cpp \
+    ardcap.cpp \
+    ardrfid.cpp \
+    arduino.cpp \
     caisse.cpp \
     client.cpp \
     clientetfinance.cpp \
@@ -27,19 +30,38 @@ SOURCES += \
     excel.cpp \
     facture.cpp \
     film.cpp \
+    historique.cpp \
     kiosque.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
     notification.cpp \
+    notificationP.cpp \
     produit.cpp \
     qcustomplot.cpp \
     salle.cpp \
+    server.cpp \
     servicetech.cpp \
+    src/emailaddress.cpp \
+    src/mimeattachment.cpp \
+    src/mimecontentformatter.cpp \
+    src/mimefile.cpp \
+    src/mimehtml.cpp \
+    src/mimeinlinefile.cpp \
+    src/mimemessage.cpp \
+    src/mimemultipart.cpp \
+    src/mimepart.cpp \
+    src/mimetext.cpp \
+    src/quotedprintable.cpp \
+    src/smtpclient.cpp \
     ticket.cpp
 
 HEADERS += \
+    ClientF.h \
     Programmation.h \
+    ardcap.h \
+    ardrfid.h \
+    arduino.h \
     caisse.h \
     client.h \
     clientetfinance.h \
@@ -48,21 +70,43 @@ HEADERS += \
     excel.h \
     facture.h \
     film.h \
+    historique.h \
     kiosque.h \
     login.h \
     mainwindow.h \
     notification.h \
+    notificationP.h \
     produit.h \
     qcustomplot.h \
     salle.h \
+    server.h \
     servicetech.h \
-    ticket.h
+    src/SmtpMime \
+    src/emailaddress.h \
+    src/mimeattachment.h \
+    src/mimecontentformatter.h \
+    src/mimefile.h \
+    src/mimehtml.h \
+    src/mimeinlinefile.h \
+    src/mimemessage.h \
+    src/mimemultipart.h \
+    src/mimepart.h \
+    src/mimetext.h \
+    src/quotedprintable.h \
+    src/smtpclient.h \
+    src/smtpexports.h \
+    ticket.h \
+    ui_client.h
 
 FORMS += \
     Programmation.ui \
+    ardcap.ui \
+    ardrfid.ui \
+    client.ui \
     clientetfinance.ui \
     kiosque.ui \
     mainwindow.ui \
+    server.ui \
     servicetech.ui
 
 # Default rules for deployment.
@@ -72,4 +116,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     cinemApp.qrc \
-    click_son.qrc
+    click_son.qrc \
+    translation.qrc
+
+DISTFILES +=

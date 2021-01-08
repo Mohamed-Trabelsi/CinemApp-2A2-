@@ -1,5 +1,6 @@
 #include "film.h"
-
+#include "Programmation.h"
+#include "client.h"
 Film::Film()
 {
     id=0;
@@ -19,7 +20,7 @@ bool Film::ajouterFilm()
   QSqlQuery query;
   QString idf=QString::number(id);
   QString dureef=QString::number(duree);
-  query.prepare("INSERT INTO FILM(IDF,NOM,CATEGORIE,DUREEF)""VALUES(:id, :nom, :categorie, :duree)");
+  query.prepare("INSERT INTO FILM(IDF,DUREEF,NOM,CATEGORIE)""VALUES(:id, :duree,:nom, :categorie)");
   query.bindValue(":id",idf);
   query.bindValue(":duree",dureef);
   query.bindValue(":nom",nom);
@@ -30,10 +31,10 @@ bool Film::ajouterFilm()
  {
      QSqlQueryModel * model=new QSqlQueryModel();
      model->setQuery("select * from film");
-     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
-     model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
-     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Categorie"));
-     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Duree"));
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Durée"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("nom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("categorie"));
      return model;
  }
  bool  Film:: modifFilm(int IDt)
@@ -68,9 +69,9 @@ bool Film::ajouterFilm()
             q->exec();
             model->setQuery(*q);
             model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-            model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-            model->setHeaderData(2, Qt::Horizontal, QObject::tr("Catégorie"));
-            model->setHeaderData(3, Qt::Horizontal, QObject::tr("Durée"));
+            model->setHeaderData(1, Qt::Horizontal, QObject::tr("Durée"));
+            model->setHeaderData(2, Qt::Horizontal, QObject::tr("nom"));
+            model->setHeaderData(3, Qt::Horizontal, QObject::tr("categorie"));
             return model;
       //ml kbir l sghir
            /* QSqlQuery * q = new  QSqlQuery ();
@@ -87,9 +88,9 @@ bool Film::ajouterFilm()
 
 
      model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
-     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Catégorie"));
-     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Durée"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Durée"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("nom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("categorie"));
 
 
  return model;

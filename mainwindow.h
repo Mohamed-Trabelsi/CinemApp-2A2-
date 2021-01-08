@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include <QObject>
+#include "login.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -37,6 +39,8 @@ private slots:
     void on_prog_clicked();
 
 private:
+    Login templog;
+      QByteArray data;
     QString id,mdp;
     Ui::MainWindow *ui;
 };

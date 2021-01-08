@@ -3,22 +3,22 @@
 #include "servicetech.h"
 #include <QMessageBox>
 #include <QSqlQuery>
-#include <QSqlQueryModel>
-#include <QSqlQuery>
 #include <QDebug>
 #include <QSound>
 #include "login.h"
 #include<QSqlQueryModel>
-#include<QSqlQuery>
 #include "clientetfinance.h"
 #include "kiosque.h"
 #include "Programmation.h"
+#include "client.h"
+#include "ClientF.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    ui->ID->setValidator(new QIntValidator(0,999999,this));
 }
 
 MainWindow::~MainWindow()
@@ -45,50 +45,58 @@ QString MainWindow::getmdp(){return mdp;}
 void MainWindow::on_connect_clicked()
 {
 
-    MainWindow C;
-        C.setid(ui->ID->text());
-        C.setmdp(ui->PWD->text());
-        ui->ID->setText(C.getid());
-        ui->PWD->setText(C.getmdp());
-        if((C.getid()=="1"&&C.getmdp()=="1")||(C.getid()=="2"&&C.getmdp()=="2")||(C.getid()=="3"&&C.getmdp()=="3")||(C.getid()=="4"&&C.getmdp()=="4"))
+    QSqlQuery query;
+    int id=ui->ID->text().toInt();
+    QString mdp=ui->PWD->text();
+    ui->ID->clear();
+    ui->PWD->clear();
+    if (templog.connect(id,mdp)==1)
+    {
+        if (id==123456)
         {
+        QMessageBox::information(this,"connecter","Welcome to CinemApp :D");
+        clientetfinance c;
+             c.setModal(true);
+             c.exec();
+        }
+        else
+            if (id==654321)
+            {
+            QMessageBox::information(this,"connecter","Welcome to CinemApp :D");
             serviceTech d;
                 d.setModal(true);
                 d.exec();
-        }
-        else
-            QMessageBox::information(this,"conecter","id ou mdp incorrect");
-        ui->ID->clear();
-        ui->PWD->clear();
-QSqlQuery query;
-int id=ui->ID->text().toInt();
-QString mpd=ui->PWD->text();
-Login c(id,mdp);
-ui->ID->clear();
-ui->PWD->clear();
-int test=c.connect();
-if (test==1)
-{
-    QMessageBox::information(this,"connecter","welcome");
-    //serviceTech d;
-        //d.setModal(true);
-        //d.exec();
-    ui->stackedWidget->setCurrentIndex(1);
-}
-else
-{
- QMessageBox::critical(this,"connecter","id ou mdp incorrrecte");
-}
+            }
+            else
+                if (id==1234)
+                {
+                QMessageBox::information(this,"connecter","Welcome to CinemApp :D");
+                kiosque k;
+                      k.setModal(true);
+                      k.exec();
+                }
+                else
+                    if (id==12345)
+                    {
+                    QMessageBox::information(this,"connecter","Welcome to CinemApp :D");
+                    Programmation p;
+                        p.setModal(true);
+                    p.exec();
+                    }
+    }
+    else
+    {
+     QMessageBox::critical(this,"Login failed","incorrect id or pwd :(");
+    }
 }
 
+/*
 
-
-
-/*void MainWindow::on_connect_clicked()
+void MainWindow::on_connect_clicked()
 {
       ui->stackedWidget->setCurrentIndex(1);
 }
-*/
+
 
 
 void MainWindow::on_hama_clicked()
@@ -115,6 +123,20 @@ void MainWindow::on_farah_clicked()
 void MainWindow::on_prog_clicked()
 { Programmation p;
     p.setModal(true);
-    p.exec();
-
+p.exec();
 }
+
+
+
+
+
+
+
+void MainWindow::on_pushButton_clicked()
+{
+
+    clientetfinance c;
+         c.setModal(true);
+         c.exec();
+}
+*/

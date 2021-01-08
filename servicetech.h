@@ -43,10 +43,13 @@ private slots:
 
     void on_tabWidget_currentChanged(int index);
 
+    void on_arduinoh_clicked();
+
 private:
     Ui::serviceTech *ui;
     Employe tempEmploye;
     Salle tempSalle;
+    QSound *sonClick;
 };
 
 #endif // SERVICETECH_H

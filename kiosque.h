@@ -5,6 +5,13 @@
 #include <QSound>
 #include <QSystemTrayIcon>
 #include <QDialog>
+#include <QTcpSocket>
+#include "historique.h"
+#include <QFile>
+#include<QTextStream>
+
+
+
 class QMediaPlayer;
 namespace Ui {
 class kiosque;
@@ -20,8 +27,7 @@ public:
     ~kiosque();
 
 private slots:
-      void on_pushButton_AjoutProdui_clicked();
-
+    void on_pushButton_AjoutProdui_clicked();
     void on_tabWidget_currentChanged(int index);
     void on_ModifProduit_clicked();
     void on_suppProduit_clicked();
@@ -31,7 +37,6 @@ private slots:
     void on_pushButton_PDFProd_clicked();
     void on_radioButton_TRInProd_clicked();
     void on_radioButton_TRIqProd_clicked();
-    void on_lineEdit_rechercheP_textChanged(const QString &arg1);
     void on_TriDateFacture_clicked();
     void on_TriidFacture_clicked();
     void on_rehercheFacture_textChanged(const QString &arg1);
@@ -43,16 +48,25 @@ private slots:
     void on_pushButton_PDFFac_clicked();
     void on_volume_valueChanged(int value);
     void on_mute_clicked();
-     void on_EXCELPr_clicked();
+    void on_EXCELPr_clicked();
     void on_EXcelF_clicked();
+    void on_comboBox_currentTextChanged(const QString &arg1);
+    void on_pushButtonWEB_clicked();
+    void on_comboBox_2_currentTextChanged(const QString &arg1);
+    void leer();
+    void on_CHAT_clicked();
+    void on_reafficher_rechproduit_clicked();
+    void on_rechercher_P_clicked();
 
 private:
     Ui::kiosque *ui;
     Produit tempProduit;
     facture temFacture;
-     QMediaPlayer *mMediaPlayer;
-     QSound *son;
-      QSystemTrayIcon *mSystemTrayIcon;
+    QMediaPlayer *mMediaPlayer;
+    QSound *son;
+    QSystemTrayIcon *mSystemTrayIcon;
+    QTcpSocket*mSocket;
+    Historique histo;
 
 };
 

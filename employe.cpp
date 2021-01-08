@@ -19,7 +19,7 @@ bool Employe::ajouter()
   QSqlQuery query;
   QString ids=QString::number(id);
   QString nums=QString::number(numTel);
-  query.prepare("INSERT INTO EMPLOYES(ID,NOM,PRENOM,NUMTEL)""VALUES(:id, :nom, :prenom, :numTel)");
+  query.prepare("INSERT INTO EMPLOYES(ID,NOM,NUMTEL,prenom)""VALUES(:id, :nom,:numTel, :prenom)");
   query.bindValue(":id",ids);
   query.bindValue(":numTel",nums);
   query.bindValue(":nom",nom);
@@ -57,8 +57,8 @@ bool  Employe:: modifier(int id)
      model->setQuery("select * from employes");
      model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
      model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
-     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
-     model->setHeaderData(3,Qt::Horizontal,QObject::tr("NumTel"));
+     model->setHeaderData(2,Qt::Horizontal,QObject::tr("NumTel"));
+     model->setHeaderData(3,Qt::Horizontal,QObject::tr("prenom"));
      return model;
  }
  bool Employe::supprimer(int id)
@@ -75,7 +75,7 @@ bool  Employe:: modifier(int id)
      model->setQuery("select *from EMPLOYES ORDER BY NOM");
      model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID"));
      model->setHeaderData(1,Qt::Horizontal,QObject::tr("Nom"));
-     model->setHeaderData(2,Qt::Horizontal,QObject::tr("Prenom"));
-     model->setHeaderData(3,Qt::Horizontal,QObject::tr("NumTel"));
+     model->setHeaderData(2,Qt::Horizontal,QObject::tr("NumTel"));
+     model->setHeaderData(3,Qt::Horizontal,QObject::tr("Prenom"));
      return model;
  }

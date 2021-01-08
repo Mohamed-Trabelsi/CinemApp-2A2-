@@ -1,9 +1,14 @@
-#ifndef PROGRAMMATION_H
-#define PROGRAMMATION_H
+#include "QMainWindow"
 #include "film.h"
 #include "ticket.h"
+#include "server.h"
+#include "notificationP.h"
 #include <QDialog>
 #include <QSound>
+#include "ui_client.h"
+#include "client.h"
+#include <QObject>
+#include <iostream>
 namespace Ui {
 class Programmation;
 }
@@ -41,10 +46,18 @@ private slots:
 
     void on_pushButton_rechercheF_clicked();
 
+    void on_pushButton_Chat_clicked();
+
+    void on_pushButton_excel_clicked();
+
 private:
     Ui::Programmation *ui;
+   Client *clientdialog;
     Film tempFilm;
     Ticket tempTicket;
+    Server *serverdialog;
+
+    QSystemTrayIcon *mysystem;
+
 };
 
-#endif // PROGRAMMATION_H

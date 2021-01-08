@@ -1,10 +1,11 @@
 #ifndef CLIENTETFINANCE_H
 #define CLIENTETFINANCE_H
-
+#include <QObject>
 #include <QDialog>
-#include "client.h"
+#include "QMainWindow"
+#include "ClientF.h"
 #include "caisse.h"
-
+#include <QSound>
 namespace Ui {
 class clientetfinance;
 }
@@ -58,11 +59,19 @@ private slots:
 
     void on_comboBox_id_currentIndexChanged(const QString &arg1);
 
+    void on_envoyer_clicked();
+
+    void on_arduinow_clicked();
+
+    void on_comboBox_id_activated(const QString &arg1);
+
+    void on_comboBox_id_currentTextChanged(const QString &arg1);
+
 private:
     Ui::clientetfinance *ui;
-    Client clienttemp;
+    clientF clienttemp;
      Caisse caissetemp;
-
+QSound *son;
 };
 
 #endif // CLIENTETFINANCE_H

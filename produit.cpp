@@ -49,7 +49,7 @@ int Produit:: getPrix()
     return this->prix;
 }
 bool Produit:: ajouter()
-{   //bool test =false;
+{
     QSqlQuery query;
     QString res=QString ::number(identifiant);//res=sid//
     QString resQ=QString ::number(quantite);
@@ -99,9 +99,6 @@ bool Produit::modifier(int idd)
 {
 QSqlQuery query,rech;
 QString res= QString::number(idd);
-//QString resQ=QString ::number(quantite);
-//QString resP=QString ::number(prix);
-//rech.prepare(("Select from produit where ")
 query.prepare("Update produit set  NOM = :nom , CATEGORIE = :categorie , QUANTITE = :quantite ,PRIX= :prix where IDENTIFIANT = :idd ");
 query.bindValue(":idd",res);
 query.bindValue(":nom",nom);
@@ -112,7 +109,7 @@ return    query.exec();
 }
 
 
-QSqlQueryModel *Produit::rechercher(QString q)
+/*QSqlQueryModel *Produit::rechercher(QString q)
 {
      QString res= QString::number(identifiant);
      QSqlQueryModel *model=new QSqlQueryModel();
@@ -125,7 +122,115 @@ QSqlQueryModel *Produit::rechercher(QString q)
 
       return model;
 
+}*/
+
+QSqlQueryModel *  Produit::rechercher_nom(QString nom)
+ {
+     QSqlQuery qry;
+     qry.prepare("select * from produit where nom=:nom");
+     qry.bindValue(":nom",nom);
+     qry.exec();
+
+     QSqlQueryModel *model= new QSqlQueryModel;
+     model->setQuery(qry);
+
+
+    return model;
+
+
+ }
+
+QSqlQueryModel *  Produit::rechercher_categorie(QString categorie)
+ {
+     QSqlQuery qry;
+     qry.prepare("select * from produit where categorie =:categorie");
+     qry.bindValue(":categorie",categorie);
+     qry.exec();
+
+     QSqlQueryModel *model= new QSqlQueryModel;
+     model->setQuery(qry);
+
+
+    return model;
+
+
+ }
+
+QSqlQueryModel * Produit::rechercher_quantite(int quantite)
+ {
+     QSqlQuery qry;
+     qry.prepare("select * from produit where quantite=:quantite");
+     qry.bindValue(":quantite",quantite);
+     qry.exec();
+     QSqlQueryModel *model= new QSqlQueryModel;
+     model->setQuery(qry);
+
+
+    return model;
+
+
 }
+
+QSqlQueryModel * Produit::rechercher_nomcategorie(QString nom, QString categorie)
+{
+    QSqlQuery *qry= new QSqlQuery();
+    qry->prepare("select * from produit where categorie=:categorie and nom=:nom");
+    qry->bindValue(":categorie",categorie);
+    qry->bindValue(":nom",nom);
+    qry->exec();
+
+
+       QSqlQueryModel *model = new QSqlQueryModel();
+       model->setQuery(*qry);
+        return model;
+
+
+}
+QSqlQueryModel *Produit:: rechercher_nomQuantite(QString nom, int quantite)
+{QSqlQuery *qry= new QSqlQuery();
+    qry->prepare("select * from produit where nom=:nom and quantite=:quantite ");
+    qry->bindValue(":quantite",quantite);
+    qry->bindValue(":nom",nom);
+    qry->exec();
+
+
+       QSqlQueryModel *model = new QSqlQueryModel();
+       model->setQuery(*qry);
+        return model;
+}
+
+ QSqlQueryModel *Produit:: rechercher_quantitecategorie(int quantite, QString categorie)
+ {
+     QSqlQuery *qry= new QSqlQuery();
+         qry->prepare("select * from produit where categorie=:categorie and quantite=:quantite");
+         qry->bindValue(":quantite",quantite);
+         qry->bindValue(":categorie",categorie);
+         qry->exec();
+
+
+            QSqlQueryModel *model = new QSqlQueryModel();
+            model->setQuery(*qry);
+             return model;
+ }
+
+ QSqlQueryModel *Produit:: rechercher_tous( QString nom,QString categorie, int quantite)
+ {
+     QSqlQuery *qry= new QSqlQuery();
+         qry->prepare("select * from produit where nom=:nom and categorie=:categorie and quantite=:quantite  ");
+         qry->bindValue(":quantite",quantite);
+         qry->bindValue(":categorie",categorie);
+         qry->bindValue(":nom",nom);
+         qry->exec();
+
+
+            QSqlQueryModel *model = new QSqlQueryModel();
+            model->setQuery(*qry);
+             return model;
+ }
+
+
+
+
 
 
 void Produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
@@ -135,7 +240,7 @@ void Produit::statistique(QVector<double>* ticks,QVector<QString> *labels)
     q.exec("select QUANTITE from produit");
     while (q.next())
     {
-        QString identifiant = q.value(0).toString();///********///
+        QString identifiant = q.value(0).toString();
         i++;
         *ticks<<i;
         *labels <<identifiant;

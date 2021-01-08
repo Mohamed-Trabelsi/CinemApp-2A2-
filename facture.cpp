@@ -7,7 +7,6 @@
 #include <QTextStream>
 #include <QPainter>
 #include <QTextStream>
-//#include "qcustomplot.h"
 
 
 facture::facture()
@@ -45,7 +44,7 @@ int facture:: getPrixVente()
 }
 int facture::  calcul(int prixachat,int prixvente)
 {
-int gain;
+    int gain;
     gain= prixvente -prixachat;
     return gain;
 
@@ -65,8 +64,6 @@ bool facture::ajouter()
  query.bindValue(":datefacture",datefacture);
  query.bindValue(":prixachat",resPA);
  query.bindValue(":prixvente",resPV);
- //ui->comboBox->setModel(tmppack.afficher_pack());
-
  query.bindValue(":gain_perte",resG);
  return query.exec();
 
@@ -155,5 +152,4 @@ QSqlQueryModel *facture::rechercher(QString q)
       model->setHeaderData(4,Qt::Horizontal,QObject::tr("GAIN_PERTE"));
 
       return model;
-
 }

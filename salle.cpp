@@ -47,9 +47,9 @@ QSqlQueryModel * Salle::afficherSalle()
 {
     QSqlQueryModel * model=new QSqlQueryModel();
     model->setQuery("select * from salles");
-    model->setHeaderData(0,Qt::Horizontal,QObject::tr("num"));
-    model->setHeaderData(1,Qt::Horizontal,QObject::tr("capacité"));
-    model->setHeaderData(2,Qt::Horizontal,QObject::tr("état"));
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("capacité"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("etat"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("num"));
     return model;
 }
 bool Salle::supprimerSalle(int num)

@@ -6,13 +6,14 @@
 
 #include <QSystemTrayIcon>
 #include<QString>
-class notification
+class notificationn
 {
 private:
    // int num;
 public:
-    notification();
+    notificationn();
     void notificationC();
+    void notificationS();
 
 };
 

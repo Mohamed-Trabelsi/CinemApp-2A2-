@@ -11,20 +11,28 @@
 #include <QPrintDialog>
 #include "excel.h"
 #include "QFileDialog"
+#include "ardrfid.h"
 
-//QSound *sonClick;
 serviceTech::serviceTech(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::serviceTech)
 {
     ui->setupUi(this);
+    ui->lineEdit_IDE->setValidator(new QIntValidator(0,999999,this));
+        ui->lineEdit_supprimerEmploye->setValidator(new QIntValidator(0,999999,this));
+        ui->lineEdit_suppSalle->setValidator(new QIntValidator(0,99,this));
+        ui->numsalle->setValidator(new QIntValidator(0,99,this));
+        ui->lineEdit_numE->setValidator(new QIntValidator(0,99999999,this));
+        ui->capacitesalle->setValidator(new QIntValidator(0,999,this));
+        ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
+        ui->tableView_salle->setModel(tempSalle.afficherSalle());
     /*ui->comboBox_tri->addItem("ID");
     ui->comboBox_tri->addItem("NOM");
     ui->comboBox_tri->addItem("PRENOM");
     ui->comboBox_tri->addItem("NUMTEL");*/
     ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
     ui->tableView_salle->setModel(tempSalle.afficherSalle());
-    //sonClick=new QSound(":/new/son/Click.wav");
+   sonClick=new QSound(":/new/son/Click.wav");
 
 }
 
@@ -37,17 +45,21 @@ serviceTech::~serviceTech()
 
 void serviceTech::on_pushButton_ajoutE_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
    int id=ui->lineEdit_IDE->text().toInt();
    int numTel=ui->lineEdit_numE->text().toInt();
    QString nom=ui->lineEdit_nomE->text();
    QString prenom=ui->lineEdit_prenomE->text();
    Employe e(id, nom, prenom, numTel);
-   ui->lineEdit_IDE->clear();
-   ui->lineEdit_numE->clear();
-   ui->lineEdit_nomE->clear();
-   ui->lineEdit_prenomE->clear();
+   //ui->lineEdit_IDE->clear();
+   //ui->lineEdit_numE->clear();
+   //ui->lineEdit_nomE->clear();
+   //ui->lineEdit_prenomE->clear();
    bool test=e.ajouter();
+   if(ui->lineEdit_IDE->text().isEmpty()||ui->lineEdit_numE->text().isEmpty()||ui->lineEdit_nomE->text().isEmpty()||ui->lineEdit_prenomE->text().isEmpty())
+      {
+           test=false;
+      }
    if (test)
    {
        ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
@@ -63,10 +75,14 @@ void serviceTech::on_pushButton_ajoutE_clicked()
 
 void serviceTech::on_pushButton_supprimerEmploye_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
 int id=ui->lineEdit_supprimerEmploye->text().toInt();
-ui->lineEdit_supprimerEmploye->clear();
+//ui->lineEdit_supprimerEmploye->clear();
 bool test = tempEmploye.supprimer(id);
+if(ui->lineEdit_supprimerEmploye->text().isEmpty())
+{
+     test=false;
+}
 if (test)
 {
     ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
@@ -83,15 +99,19 @@ else
 
 void serviceTech::on_pushButton_ajoutsalle_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
     int num=ui->numsalle->text().toInt();
     int capacite=ui->capacitesalle->text().toInt();
     QString etat=ui->etatsalle->text();
     Salle s(num, capacite, etat);
-    ui->numsalle->clear();
-    ui->capacitesalle->clear();
-    ui->etatsalle->clear();
+    //ui->numsalle->clear();
+    //ui->capacitesalle->clear();
+    //ui->etatsalle->clear();
     bool test=s.ajouterSalle();
+    if(ui->numsalle->text().isEmpty()||ui->capacitesalle->text().isEmpty()||ui->etatsalle->text().isEmpty())
+        {
+             test=false;
+        }
     if (test)
     {
          ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -107,10 +127,14 @@ void serviceTech::on_pushButton_ajoutsalle_clicked()
 
 void serviceTech::on_pushButton_suppSalle_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
     int num=ui->lineEdit_suppSalle->text().toInt();
-    ui->lineEdit_suppSalle->clear();
+    //ui->lineEdit_suppSalle->clear();
     bool test = tempSalle.supprimerSalle(num);
+    if(ui->lineEdit_suppSalle->text().isEmpty())
+    {
+         test=false;
+    }
     if (test)
     {
         ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -126,14 +150,18 @@ void serviceTech::on_pushButton_suppSalle_clicked()
 
 void serviceTech::on_pushButton_modifS_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
     int num=ui->numsalle->text().toInt();
         tempSalle.setCapacite(ui->capacitesalle->text().toInt());
         tempSalle.setEtat(ui->etatsalle->text());
-        ui->numsalle->clear();
-        ui->capacitesalle->clear();
-        ui->etatsalle->clear();
+       // ui->numsalle->clear();
+        //ui->capacitesalle->clear();
+        //ui->etatsalle->clear();
         bool test=tempSalle.modifSalle(num);
+        if(ui->numsalle->text().isEmpty()||ui->capacitesalle->text().isEmpty()||ui->etatsalle->text().isEmpty())
+                {
+                     test=false;
+                }
         if(test)
         {
            ui->tableView_salle->setModel(tempSalle.afficherSalle());
@@ -147,16 +175,20 @@ void serviceTech::on_pushButton_modifS_clicked()
 
 void serviceTech::on_pushButton_modifEmp_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
     int id=ui->lineEdit_IDE->text().toInt();
     tempEmploye.setNom(ui->lineEdit_nomE->text());
     tempEmploye.setPrenom(ui->lineEdit_prenomE->text());
     tempEmploye.setNum(ui->lineEdit_numE->text().toInt());
-    ui->lineEdit_IDE->clear();
-    ui->lineEdit_numE->clear();
-    ui->lineEdit_nomE->clear();
-    ui->lineEdit_prenomE->clear();
+   // ui->lineEdit_IDE->clear();
+    //ui->lineEdit_numE->clear();
+    //ui->lineEdit_nomE->clear();
+    //ui->lineEdit_prenomE->clear();
     bool test=tempEmploye.modifier(id);
+    if(ui->lineEdit_IDE->text().isEmpty()||ui->lineEdit_numE->text().isEmpty()||ui->lineEdit_nomE->text().isEmpty()||ui->lineEdit_prenomE->text().isEmpty())
+       {
+            test=false;
+       }
     if (test)
     {
         ui->tableView_employe->setModel(tempEmploye.afficherEmploye());
@@ -172,14 +204,14 @@ void serviceTech::on_pushButton_modifEmp_clicked()
 
 void serviceTech::on_Tri_clicked()
 {
-//sonClick->play();
+sonClick->play();
     ui->tableView_employe->setModel(tempEmploye.affichageTrier());
 }
 
 
 void serviceTech::on_pushButton_pdf_clicked()
 {
-    //sonClick->play();
+    sonClick->play();
     QSqlDatabase db;
                 QTableView tableView_salle;
                 QSqlQueryModel * Modal=new  QSqlQueryModel();
@@ -256,11 +288,7 @@ void serviceTech::on_pushButton_pdf_clicked()
                       QPixmap pixmap(":/img/aze.png");
                      lab.setPixmap(pixmap);
                      QPainter painter(&lab);
-                     //QPrinter printer(QPrinter::PrinterResolution);
 
-                     //pixmap.load("aze.png");
-                     //painter.drawPixmap(0,0,this->width(),this->height(),pixmap);
-                     //painter.drawPixmap(10,10,50,50, pixmap);
 
                      document->print(&printer);
                  }
@@ -277,7 +305,7 @@ void serviceTech::on_pushButton_pdf_clicked()
 
 void serviceTech::on_expoter_pdf_clicked()
 {
-   // sonClick->play();
+    sonClick->play();
     QString fileName = QFileDialog::getSaveFileName(this, tr("Excel file"), qApp->applicationDirPath (),
                                                         tr("Excel Files (*.xls)"));
         if (fileName.isEmpty())
@@ -387,4 +415,10 @@ void serviceTech::on_tabWidget_currentChanged(int index)
               ui->plot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
 
+}
+
+void serviceTech::on_arduinoh_clicked()
+{
+    ardrfid r;
+    r.show();
 }

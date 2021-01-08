@@ -1,18 +1,28 @@
 #include "notification.h"
 #include <QSystemTrayIcon>
 #include<QString>
-notification::notification()
+notificationn::notificationn()
 {
 
 }
 
-void notification::notificationC()
+void notificationn::notificationC()
 {
 
     QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
 
-    notifyIcon->setIcon(QIcon("C:/Users/USER/Desktop/notif"));
+    notifyIcon->setIcon(QIcon("/new/prefix1/cinemApp.jpg"));
 
     notifyIcon->show();
-    notifyIcon->showMessage("Attention ","un client a été detecté ",QSystemTrayIcon::Information,15000);
+    notifyIcon->showMessage("Attention ","ajout avec succés ",QSystemTrayIcon::Information,15000);
+}
+void notificationn::notificationS()
+{
+
+    QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+    notifyIcon->setIcon(QIcon("/new/prefix1/cinemApp.jpg"));
+
+    notifyIcon->show();
+    notifyIcon->showMessage("Attention ","suppression avec succés ",QSystemTrayIcon::Information,15000);
 }

@@ -7,7 +7,7 @@ class Login
 public:
     Login();
     Login(int,QString);
-    int connect();
+    int connect(int id, QString mdp);
 private:
     int id;
     QString mdp;
